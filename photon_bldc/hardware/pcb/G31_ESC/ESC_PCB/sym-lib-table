@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "ESC library")(type "KiCad")(uri "${KIPRJMOD}/Fortior Tech FD6288Q driver library/ESC library.kicad_sym")(options "")(descr ""))
+)

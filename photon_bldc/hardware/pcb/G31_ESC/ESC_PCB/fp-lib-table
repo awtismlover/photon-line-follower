@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Fortior Tech FD6288Q driver library")(type "KiCad")(uri "${KIPRJMOD}/Fortior Tech FD6288Q driver library.pretty")(options "")(descr ""))
+)
