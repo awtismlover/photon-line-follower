@@ -5893,6 +5893,16 @@
 		)
 		(uuid "c8380204-167a-478a-af05-58768c145edc")
 	)
+	(text "NIIGGAA\n\n"
+		(exclude_from_sim no)
+		(at 199.39 144.526 0)
+		(effects
+			(font
+				(size 12.7 12.7)
+			)
+		)
+		(uuid "d04d9777-ef70-4663-bac4-2819803a9731")
+	)
 	(text "STM32G071GBU6\n"
 		(exclude_from_sim no)
 		(at 14.224 17.272 0)
