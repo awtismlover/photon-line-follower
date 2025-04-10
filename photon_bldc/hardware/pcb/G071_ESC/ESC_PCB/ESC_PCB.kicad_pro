@@ -564,7 +564,7 @@
     },
     "net_format_name": "",
     "page_layout_descr_file": "",
-    "plot_directory": "D:/SN-USER/",
+    "plot_directory": "C:/Users/piotr/OneDrive/Pulpit/",
     "spice_current_sheet_as_root": false,
     "spice_external_command": "spice \"%I\"",
     "spice_model_current_sheet_as_root": true,
@@ -577,7 +577,7 @@
   "sheets": [
     [
       "a0adf6d0-26ed-4f9f-8427-f597490cd313",
-      "Root"
+      "Główny"
     ]
   ],
   "text_variables": {}
