@@ -634,7 +634,7 @@
 				)
 			)
 		)
-		(property "Value" "swdio"
+		(property "Value" "SWDIO"
 			(at 0 2.05 0)
 			(layer "F.Fab")
 			(uuid "91d518d5-c922-4e2b-a261-bd48901e7edd")
@@ -1306,7 +1306,7 @@
 				)
 			)
 		)
-		(property "Value" "swclk"
+		(property "Value" "SWCLK"
 			(at 0 2.05 0)
 			(layer "F.Fab")
 			(uuid "80ea2030-5fb4-4bf1-94cd-6ae3cb0e993f")
@@ -5273,7 +5273,7 @@
 				)
 			)
 		)
-		(property "Value" "gnd"
+		(property "Value" "GND"
 			(at 0 2.05 0)
 			(layer "F.Fab")
 			(uuid "104293e4-9037-4fa2-91fd-ec8ad81c9fe0")
@@ -5427,6 +5427,102 @@
 			(pinfunction "1")
 			(pintype "passive")
 			(uuid "f7eb6ce8-79dd-4324-95a4-d3b83530afa6")
+		)
+	)
+	(footprint "Fortior Tech FD6288Q driver library:PhasePad"
+		(layer "F.Cu")
+		(uuid "7e12897c-59e4-48cc-9fb3-091a09e4640f")
+		(at 116.25 59.05)
+		(property "Reference" "TP10"
+			(at 0.05 -5.05 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "84ab6b25-b175-4395-ae03-143ddae47207")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "T_PHASE_B"
+			(at 0.05 -3.55 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "72f57112-9cf8-4a80-a059-dbabb27578b9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "Fortior Tech FD6288Q driver library:PhasePad"
+			(at 0.05 -4.55 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d007c4a3-0191-4209-af1c-53b69894820e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0.05 -4.55 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "02bc7f40-efec-405e-9753-88acbe4cdd37")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0.05 -4.55 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "af38699b-0608-4d8d-9cf7-bddac84a37d0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/ee37c3ad-1c6b-4c12-b2dc-2729a18ccbc5")
+		(sheetname "Główny")
+		(sheetfile "ESC_PCB.kicad_sch")
+		(attr smd)
+		(fp_text user "${REFERENCE}"
+			(at 0.15 -7.15 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "28d5981b-3cd5-4432-b85a-e2668256c067")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd roundrect
+			(at 0.05 0.05)
+			(size 3 5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(roundrect_rratio 0.25)
+			(net 19 "PHASE_B")
+			(pinfunction "1")
+			(pintype "passive")
+			(thermal_bridge_angle 45)
+			(uuid "86c1d0cd-0232-4394-ba07-d20823e6ea64")
 		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
@@ -12942,6 +13038,102 @@
 			)
 		)
 	)
+	(footprint "Fortior Tech FD6288Q driver library:PhasePad"
+		(layer "F.Cu")
+		(uuid "ef2f359e-b0df-425d-afad-f8ad8be5ead3")
+		(at 120.25 59.05)
+		(property "Reference" "TP11"
+			(at 0.05 -5.05 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "1d8171de-4c1d-49c0-afae-ddd9845e0b4b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "T_PHASE_A"
+			(at 0.05 -3.55 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "a71f5b68-a67f-437d-a63b-ca829db1f773")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "Fortior Tech FD6288Q driver library:PhasePad"
+			(at 0.05 -4.55 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a5b9c3f4-fdbb-4105-9e9e-ed106baf8a08")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0.05 -4.55 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a1c5dbee-84de-47e8-a9ab-6784b326b867")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0.05 -4.55 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d0d8044d-5d2e-4d92-8e20-81295c2cb29d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/d8a671f7-2ac7-4217-8b44-570b24bc426a")
+		(sheetname "Główny")
+		(sheetfile "ESC_PCB.kicad_sch")
+		(attr smd)
+		(fp_text user "${REFERENCE}"
+			(at 0.15 -7.15 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "6e8752d2-016a-4121-abe3-ed60e01994c8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd roundrect
+			(at 0.05 0.05)
+			(size 3 5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(roundrect_rratio 0.25)
+			(net 16 "PHASE_A")
+			(pinfunction "1")
+			(pintype "passive")
+			(thermal_bridge_angle 45)
+			(uuid "fb9cf524-edec-4a2b-ac0b-b4a3759d864e")
+		)
+	)
 	(footprint "Diode_SMD:D_SOD-523"
 		(layer "F.Cu")
 		(uuid "f24cd9a1-874e-41d2-b2cf-1c3f096e7793")
@@ -13251,6 +13443,102 @@
 			(rotate
 				(xyz 0 0 0)
 			)
+		)
+	)
+	(footprint "Fortior Tech FD6288Q driver library:PhasePad"
+		(layer "F.Cu")
+		(uuid "f2566c14-92ee-4d33-b3a8-16357b90aaae")
+		(at 112.25 59.05)
+		(property "Reference" "TP9"
+			(at 0.05 -5.05 0)
+			(unlocked yes)
+			(layer "F.SilkS")
+			(uuid "43675276-2b14-4ec7-9fef-dba8082ffa09")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.1)
+				)
+			)
+		)
+		(property "Value" "T_PHASE_C"
+			(at 0.05 -3.55 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "f3f4587e-f0df-4bb5-b75d-5927394f4586")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Footprint" "Fortior Tech FD6288Q driver library:PhasePad"
+			(at 0.05 -4.55 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "17d072da-945f-4c06-9a31-a00ecadbab9c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0.05 -4.55 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e8e2be30-1d16-4e94-8446-4ec97c2973a9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Description" "test point"
+			(at 0.05 -4.55 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "589f403e-cdbb-4213-bf2a-5761e0a26913")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property ki_fp_filters "Pin* Test*")
+		(path "/29e61b64-59c6-47f4-a198-4d87f145ef06")
+		(sheetname "Główny")
+		(sheetfile "ESC_PCB.kicad_sch")
+		(attr smd)
+		(fp_text user "${REFERENCE}"
+			(at 0.15 -7.15 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(uuid "7f57ae0c-c027-4827-ba2d-e156a7442e17")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(pad "1" smd roundrect
+			(at 0.05 0.05)
+			(size 3 5)
+			(layers "F.Cu" "F.Paste" "F.Mask")
+			(roundrect_rratio 0.25)
+			(net 18 "PHASE_C")
+			(pinfunction "1")
+			(pintype "passive")
+			(thermal_bridge_angle 45)
+			(uuid "cfb8a272-b29d-44a4-9d2c-ee7d0e7a6db9")
 		)
 	)
 	(footprint "TestPoint:TestPoint_Pad_2.5x2.5mm"

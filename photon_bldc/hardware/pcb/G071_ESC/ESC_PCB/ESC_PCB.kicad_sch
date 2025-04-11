@@ -6125,7 +6125,7 @@
 	)
 	(rectangle
 		(start 215.9 17.78)
-		(end 283.21 114.3)
+		(end 283.21 120.65)
 		(stroke
 			(width 0.5)
 			(type dash)
@@ -6136,7 +6136,7 @@
 		(uuid 48d739b8-7145-450b-abe0-2f672d596ad2)
 	)
 	(rectangle
-		(start 215.9 121.92)
+		(start 215.9 128.27)
 		(end 283.21 165.1)
 		(stroke
 			(width 0.5)
@@ -6381,7 +6381,7 @@
 	)
 	(text "PogoPads for programming"
 		(exclude_from_sim no)
-		(at 215.138 120.904 0)
+		(at 214.63 127 0)
 		(effects
 			(font
 				(size 3 3)
@@ -6574,7 +6574,7 @@
 	)
 	(global_label "SWCLK"
 		(shape input)
-		(at 243.84 146.05 0)
+		(at 245.11 148.59 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -6584,7 +6584,7 @@
 		)
 		(uuid "38899b04-50f2-482b-b07a-91c6d406ae9f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 253.0542 146.05 0)
+			(at 254.3242 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6704,6 +6704,28 @@
 			)
 		)
 	)
+	(global_label "PHASE_A"
+		(shape input)
+		(at 228.6 116.84 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4f6344a8-3d74-41fc-a7fa-86de8e8203ab")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 217.511 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "PHASE_C"
 		(shape input)
 		(at 119.38 137.16 90)
@@ -6739,6 +6761,28 @@
 		(uuid "5a5bbbeb-acd5-4f2e-85a0-dc39e0afc2c8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 224.5867 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "PHASE_C"
+		(shape input)
+		(at 271.78 116.84 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "606b7084-547a-49d1-9302-fb9c4f444644")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 260.5096 116.84 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7102,7 +7146,7 @@
 	)
 	(global_label "SWDIO"
 		(shape input)
-		(at 243.84 142.24 0)
+		(at 245.11 144.78 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7112,7 +7156,7 @@
 		)
 		(uuid "9f7f8f8b-ecaf-4341-a349-55b34bbdbfe4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 252.6914 142.24 0)
+			(at 253.9614 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7316,6 +7360,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "PHASE_B"
+		(shape input)
+		(at 250.19 116.84 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e2f04feb-1010-4304-a820-3cb376703f4c")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 238.9196 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -8348,6 +8414,72 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 271.78 116.84 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "29e61b64-59c6-47f4-a198-4d87f145ef06")
+		(property "Reference" "TP9"
+			(at 276.352 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "T_PHASE_C"
+			(at 262.382 114.554 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Fortior Tech FD6288Q driver library:PhasePad"
+			(at 271.78 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 271.78 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 271.78 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b41a4268-3938-4acf-8d22-eadb111330c9")
+		)
+		(instances
+			(project "ESC_PCB"
+				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
+					(reference "TP9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 147.32 100.33 0)
 		(unit 1)
@@ -8833,7 +8965,7 @@
 		(dnp no)
 		(uuid "36f35a72-7372-4d62-9bd7-172c0559919f")
 		(property "Reference" "Q1"
-			(at 235.712 87.884 0)
+			(at 235.712 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8842,7 +8974,7 @@
 			)
 		)
 		(property "Value" "NMOS"
-			(at 234.696 90.17 0)
+			(at 234.696 89.408 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9498,7 +9630,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 243.84 148.59 90)
+		(at 245.11 151.13 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9506,7 +9638,7 @@
 		(dnp no)
 		(uuid "468e6d07-5dba-4f7c-9288-c6e2715eafc0")
 		(property "Reference" "#PWR033"
-			(at 250.19 148.59 0)
+			(at 251.46 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9515,7 +9647,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 246.888 148.59 90)
+			(at 248.158 151.13 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9524,7 +9656,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 243.84 148.59 0)
+			(at 245.11 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9533,7 +9665,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 243.84 148.59 0)
+			(at 245.11 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9542,7 +9674,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 243.84 148.59 0)
+			(at 245.11 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9572,7 +9704,7 @@
 		(dnp no)
 		(uuid "4768d866-9928-4d8d-81b3-9fbe52ef3ba0")
 		(property "Reference" "Q3"
-			(at 254.508 88.138 0)
+			(at 254.508 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9581,7 +9713,7 @@
 			)
 		)
 		(property "Value" "NMOS"
-			(at 252.984 90.17 0)
+			(at 252.984 89.662 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9663,7 +9795,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 243.84 139.7 90)
+		(at 245.11 142.24 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9671,7 +9803,7 @@
 		(dnp no)
 		(uuid "4c9b2461-5fd1-4884-be9a-7a19ee4f3992")
 		(property "Reference" "TP1"
-			(at 237.744 139.7 90)
+			(at 238.76 142.24 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9679,7 +9811,7 @@
 			)
 		)
 		(property "Value" "3.3V"
-			(at 257.556 139.7 90)
+			(at 258.064 142.24 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9687,7 +9819,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_2.0x2.0mm"
-			(at 243.84 134.62 0)
+			(at 245.11 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9696,7 +9828,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 243.84 134.62 0)
+			(at 245.11 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9705,7 +9837,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 243.84 139.7 0)
+			(at 245.11 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10140,7 +10272,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 243.84 146.05 90)
+		(at 245.11 148.59 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10148,15 +10280,15 @@
 		(dnp no)
 		(uuid "6190b1b0-1a83-473d-95d2-706c5f19cf4e")
 		(property "Reference" "TP3"
-			(at 237.49 146.05 90)
+			(at 238.76 148.59 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "swclk"
-			(at 257.556 146.05 90)
+		(property "Value" "SWCLK"
+			(at 258.826 148.59 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10164,7 +10296,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_2.0x2.0mm"
-			(at 243.84 140.97 0)
+			(at 245.11 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10173,7 +10305,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 243.84 140.97 0)
+			(at 245.11 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10182,7 +10314,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 243.84 146.05 0)
+			(at 245.11 148.59 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10330,73 +10462,6 @@
 			(project ""
 				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
 					(reference "TP6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 252.73 91.44 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6bac175e-7c16-46dc-ba81-ec82c5fc7990")
-		(property "Reference" "TP9"
-			(at 257.81 90.1699 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "PHASE_B"
-			(at 257.81 92.7099 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 252.73 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 252.73 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 252.73 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "18276afd-c125-4fe9-9108-18ecda40adf6")
-		)
-		(instances
-			(project ""
-				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
-					(reference "TP9")
 					(unit 1)
 				)
 			)
@@ -12578,7 +12643,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 243.84 148.59 90)
+		(at 245.11 151.13 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12586,15 +12651,15 @@
 		(dnp no)
 		(uuid "a8187eb9-46ba-40b3-8c37-6a0488cdfafa")
 		(property "Reference" "TP4"
-			(at 237.49 148.59 90)
+			(at 238.76 151.13 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "gnd"
-			(at 257.556 148.844 90)
+		(property "Value" "GND"
+			(at 257.81 151.384 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12602,7 +12667,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_2.0x2.0mm"
-			(at 243.84 143.51 0)
+			(at 245.11 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12611,7 +12676,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 243.84 143.51 0)
+			(at 245.11 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12620,7 +12685,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 243.84 148.59 0)
+			(at 245.11 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12840,7 +12905,7 @@
 	(symbol
 		(lib_name "+3V3_1")
 		(lib_id "power:+3V3")
-		(at 243.84 139.7 270)
+		(at 245.11 142.24 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12848,7 +12913,7 @@
 		(dnp no)
 		(uuid "b2984715-e0b9-4ed3-a8d6-330c2fb6f357")
 		(property "Reference" "#PWR028"
-			(at 240.03 139.7 0)
+			(at 241.3 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12857,7 +12922,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 246.888 139.7 90)
+			(at 248.158 142.24 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12866,7 +12931,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 243.84 139.7 0)
+			(at 245.11 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12875,7 +12940,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 243.84 139.7 0)
+			(at 245.11 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12884,7 +12949,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 243.84 139.7 0)
+			(at 245.11 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13175,7 +13240,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 243.84 142.24 90)
+		(at 245.11 144.78 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13183,15 +13248,15 @@
 		(dnp no)
 		(uuid "bd210daf-e419-4547-8ad7-a4b1ed915b82")
 		(property "Reference" "TP2"
-			(at 237.49 142.24 90)
+			(at 238.76 144.78 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "swdio"
-			(at 257.556 142.494 90)
+		(property "Value" "SWDIO"
+			(at 258.826 145.034 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13199,7 +13264,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_2.0x2.0mm"
-			(at 243.84 137.16 0)
+			(at 245.11 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13208,7 +13273,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 243.84 137.16 0)
+			(at 245.11 139.7 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13217,7 +13282,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 243.84 142.24 0)
+			(at 245.11 144.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13645,6 +13710,72 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 228.6 116.84 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d8a671f7-2ac7-4217-8b44-570b24bc426a")
+		(property "Reference" "TP11"
+			(at 232.918 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "T_PHASE_A"
+			(at 219.71 114.554 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Fortior Tech FD6288Q driver library:PhasePad"
+			(at 228.6 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 228.6 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 228.6 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7d5f3ae5-bd9a-45c2-ab94-47e49f4b5366")
+		)
+		(instances
+			(project "ESC_PCB"
+				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
+					(reference "TP11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:VCC")
 		(at 90.17 96.52 0)
 		(unit 1)
@@ -13982,6 +14113,72 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 250.19 116.84 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ee37c3ad-1c6b-4c12-b2dc-2729a18ccbc5")
+		(property "Reference" "TP10"
+			(at 254.508 116.84 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "T_PHASE_B"
+			(at 241.046 114.554 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Fortior Tech FD6288Q driver library:PhasePad"
+			(at 250.19 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 250.19 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 250.19 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "46efeb88-ffdd-4901-87a2-02df6c73fe0c")
+		)
+		(instances
+			(project "ESC_PCB"
+				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
+					(reference "TP10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:D")
 		(at 273.05 30.48 0)
 		(unit 1)
@@ -14268,73 +14465,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 271.78 91.44 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "fa0451cc-b882-4604-8475-68af83b575b7")
-		(property "Reference" "TP8"
-			(at 276.86 90.1699 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "PHASE_C"
-			(at 276.86 92.7099 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 271.78 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 271.78 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 271.78 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b8df81c0-cdc2-4e14-9efa-9a207a41f540")
-		)
-		(instances
-			(project ""
-				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
-					(reference "TP8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 69.85 102.87 0)
 		(unit 1)
@@ -14564,73 +14694,6 @@
 			(project "ESC_PCB"
 				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
 					(reference "Q4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 233.68 91.44 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "fc4bd6d5-3b62-4b84-9f77-6cb1f8a5a8c2")
-		(property "Reference" "TP10"
-			(at 238.76 90.1699 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "PHASE_A"
-			(at 238.76 92.7099 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 233.68 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 233.68 96.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 233.68 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "55c6b2e0-afad-40cb-964b-47f7e6d7e478")
-		)
-		(instances
-			(project ""
-				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
-					(reference "TP10")
 					(unit 1)
 				)
 			)
