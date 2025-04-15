@@ -1,4 +1,4 @@
-24646027917630285
+24647772980495538
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -57422,6 +57422,13 @@ emi filter
 5
 Fortior Tech FD6288Q driver library
 PhasePad
+
+
+0
+1
+1
+Fortior Tech FD6288Q driver library
+PowerPad
 
 
 0

@@ -4836,6 +4836,12 @@
 		(uuid "9038ef47-0c5e-47d0-9391-6763fa0d6bfd")
 	)
 	(junction
+		(at 177.8 86.36)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "933b95ee-36a3-4111-a8d4-0a33b0fd2d1b")
+	)
+	(junction
 		(at 252.73 78.74)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4878,10 +4884,22 @@
 		(uuid "b988be80-2767-4401-b19b-902c8a8637eb")
 	)
 	(junction
+		(at 187.96 78.74)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bf96bc49-42ab-4a00-9389-64169cb373c3")
+	)
+	(junction
 		(at 123.19 104.14)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c2b7bc5a-4a25-4bb6-b15a-284ffde90fe2")
+	)
+	(junction
+		(at 187.96 86.36)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c9fd3e83-9684-4a71-ba90-c6b7d404990f")
 	)
 	(junction
 		(at 161.29 72.39)
@@ -4930,6 +4948,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "dd5d2d76-badb-46d8-89e1-2a490347c1bf")
+	)
+	(junction
+		(at 177.8 78.74)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "f5b792d1-4df3-438a-9fc5-69019ca2898f")
 	)
 	(junction
 		(at 93.98 36.83)
@@ -5253,6 +5277,16 @@
 	)
 	(wire
 		(pts
+			(xy 177.8 86.36) (xy 187.96 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "46641bbb-ce5f-4b87-9049-2bbe5bd95f8f")
+	)
+	(wire
+		(pts
 			(xy 133.35 72.39) (xy 139.7 72.39)
 		)
 		(stroke
@@ -5323,6 +5357,16 @@
 	)
 	(wire
 		(pts
+			(xy 187.96 78.74) (xy 199.39 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "57795b78-e3a0-4d61-ac30-15f066c55456")
+	)
+	(wire
+		(pts
 			(xy 180.34 96.52) (xy 191.77 96.52)
 		)
 		(stroke
@@ -5370,6 +5414,16 @@
 			(type default)
 		)
 		(uuid "6a8e2b1c-fbf2-487f-8814-9fa289892dc6")
+	)
+	(wire
+		(pts
+			(xy 187.96 86.36) (xy 199.39 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6d9fd6f7-f504-4266-ade8-c23719ae37cb")
 	)
 	(wire
 		(pts
@@ -5870,6 +5924,16 @@
 			(type default)
 		)
 		(uuid "d292adf1-ac12-4453-8b10-bbbebb964755")
+	)
+	(wire
+		(pts
+			(xy 177.8 78.74) (xy 187.96 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d3aeae20-47dc-4e0d-a6c8-af86121ac61d")
 	)
 	(wire
 		(pts
@@ -8075,6 +8139,75 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 199.39 82.55 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0ef9ce87-0d3f-4156-8c61-1d6d05051eb9")
+		(property "Reference" "C26"
+			(at 201.676 82.042 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22uF"
+			(at 201.93 84.074 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 200.3552 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 199.39 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 199.39 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "120e3e43-a4a6-4a74-8ed6-49e1b992ea7b")
+		)
+		(pin "2"
+			(uuid "a07adf69-4082-4da4-8e71-0702c2126ba0")
+		)
+		(instances
+			(project "ESC_PCB"
+				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
+					(reference "C26")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:VDC")
 		(at 154.94 34.29 0)
 		(unit 1)
@@ -8544,6 +8677,75 @@
 			(project "ESC_PCB"
 				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
 					(reference "C18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 187.96 82.55 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2ad6947f-8b69-47f2-aeea-5d7d78ce2d72")
+		(property "Reference" "C25"
+			(at 190.754 82.042 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22uF"
+			(at 190.754 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 188.9252 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 187.96 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 187.96 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "950d74ab-2492-4d8c-bb7c-eace317a4df5")
+		)
+		(pin "2"
+			(uuid "10449c80-29bc-4064-9f72-326d5673ecc5")
+		)
+		(instances
+			(project "ESC_PCB"
+				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
+					(reference "C25")
 					(unit 1)
 				)
 			)
@@ -11072,7 +11274,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3V3"
+		(property "Value" "+3.3V"
 			(at 21.59 21.59 0)
 			(effects
 				(font
@@ -11283,7 +11485,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_Wire:SolderWirePad_1x01_SMD_1x2mm"
+		(property "Footprint" "Fortior Tech FD6288Q driver library:PowerPad"
 			(at 163.83 38.1 0)
 			(effects
 				(font
@@ -11560,7 +11762,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3V3"
+		(property "Value" "+3.3V"
 			(at 20.32 93.98 0)
 			(effects
 				(font
@@ -11744,6 +11946,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:VCC")
+		(at 177.8 78.74 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "93e6c6eb-9664-4004-9bd8-caae86216784")
+		(property "Reference" "#PWR041"
+			(at 177.8 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VDC"
+			(at 177.8 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 177.8 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 177.8 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VCC\""
+			(at 177.8 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6662b29c-235e-4a8f-8913-5e9e61fa3c5f")
+		)
+		(instances
+			(project "ESC_PCB"
+				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
+					(reference "#PWR041")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_name "GND_7")
 		(lib_id "power:GND")
 		(at 90.17 104.14 0)
@@ -11804,6 +12071,141 @@
 			(project ""
 				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
 					(reference "#PWR029")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 177.8 82.55 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "971e98c7-607d-4bea-bf66-3e35fd4bd4d7")
+		(property "Reference" "C24"
+			(at 180.34 82.042 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22uF"
+			(at 180.34 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
+			(at 178.7652 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 177.8 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 177.8 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6ec60faf-6795-49c4-bfb8-cd30e010a864")
+		)
+		(pin "2"
+			(uuid "a9056674-adf7-4455-89ca-4e485d6684b9")
+		)
+		(instances
+			(project "ESC_PCB"
+				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
+					(reference "C24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "GND_7")
+		(lib_id "power:GND")
+		(at 177.8 86.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9a003f01-a8a4-4395-893c-cdf85757af1e")
+		(property "Reference" "#PWR042"
+			(at 177.8 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 177.8 90.424 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 177.8 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 177.8 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 177.8 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2db0d0ea-7675-4b12-94c0-ca90c8368a36")
+		)
+		(instances
+			(project "ESC_PCB"
+				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)
@@ -12921,7 +13323,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3V3"
+		(property "Value" "+3.3V"
 			(at 248.158 142.24 90)
 			(effects
 				(font
@@ -13670,7 +14072,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_Wire:SolderWirePad_1x01_SMD_1x2mm"
+		(property "Footprint" "Fortior Tech FD6288Q driver library:PowerPad"
 			(at 163.83 43.18 0)
 			(effects
 				(font
