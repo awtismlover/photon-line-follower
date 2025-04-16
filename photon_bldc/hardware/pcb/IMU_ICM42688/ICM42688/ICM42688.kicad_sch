@@ -1169,6 +1169,22 @@
 		(color 0 0 0 0)
 		(uuid "de53f67d-3c4f-4413-934c-1bb74be47fdc")
 	)
+	(no_connect
+		(at 102.87 74.93)
+		(uuid "1d0aff11-42e1-4236-a61f-a47cb7375d80")
+	)
+	(no_connect
+		(at 153.67 85.09)
+		(uuid "53027ece-c997-40de-aed3-36b6d21eda37")
+	)
+	(no_connect
+		(at 153.67 80.01)
+		(uuid "954f405c-87b9-495d-beff-077ce4fd3979")
+	)
+	(no_connect
+		(at 153.67 82.55)
+		(uuid "af264452-fb0f-4126-bd7e-e917cb27e787")
+	)
 	(wire
 		(pts
 			(xy 189.23 69.85) (xy 193.04 69.85)
@@ -1188,6 +1204,16 @@
 			(type default)
 		)
 		(uuid "05456c54-bf01-4613-9a95-7cb601bebfd3")
+	)
+	(wire
+		(pts
+			(xy 86.36 80.01) (xy 102.87 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a766a92-a09c-430c-942e-14d254b2c61b")
 	)
 	(wire
 		(pts
@@ -1309,28 +1335,6 @@
 		)
 		(uuid "f1883c6b-9875-4634-b649-27d8f2f236c2")
 	)
-	(global_label "SPI_CS"
-		(shape input)
-		(at 102.87 80.01 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "20af2543-c394-418c-a40e-6742ce03d448")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 93.3534 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "SPI_SCK"
 		(shape input)
 		(at 100.33 107.95 180)
@@ -1353,6 +1357,50 @@
 			)
 		)
 	)
+	(global_label "INT1"
+		(shape input)
+		(at 100.33 105.41 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4531930b-dc92-4f55-98cd-8bf0fcfcbdd4")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 93.2324 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "INT1"
+		(shape input)
+		(at 153.67 74.93 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4709ca05-c8ad-4338-9251-e675b1460236")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 160.7676 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "SPI_MOSI"
 		(shape input)
 		(at 100.33 110.49 180)
@@ -1366,28 +1414,6 @@
 		(uuid "8b3f0ca4-b642-4404-af0b-4fecb52e25c2")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 88.6967 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "SPI_CS"
-		(shape input)
-		(at 100.33 105.41 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "9490c69f-43d0-49b6-b06e-5460a8520ac4")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 90.8134 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1546,6 +1572,72 @@
 			(project ""
 				(path "/db72b23a-9bbe-4410-8281-b53e1b14cbfa"
 					(reference "#PWR06")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 86.36 80.01 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2c90930c-7cd0-4ea2-82fe-933e49045fe5")
+		(property "Reference" "#PWR08"
+			(at 86.36 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 86.36 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 86.36 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 86.36 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 86.36 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c93814db-fce3-4ad9-a25b-c502d4bba73c")
+		)
+		(instances
+			(project ""
+				(path "/db72b23a-9bbe-4410-8281-b53e1b14cbfa"
+					(reference "#PWR08")
 					(unit 1)
 				)
 			)
