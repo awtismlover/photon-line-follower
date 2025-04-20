@@ -17,7 +17,7 @@
 > ### **For the drive system Photon will use BLDC motors which will be driven by ESCs based on Escape32**
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/710406bd-baf3-4d83-b0fc-ae9f71f6a97d" width="700"/>
+  <img src="https://github.com/user-attachments/assets/2c161838-4078-4e58-b09b-684bfa5253f1" width="700"/>
 </div>
 
 ## Hardware
