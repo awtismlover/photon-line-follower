@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "SensorOptical")(type "KiCad")(uri "${KIPRJMOD}/SensorOptical.pretty")(options "")(descr ""))
+)

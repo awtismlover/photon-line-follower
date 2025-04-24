@@ -139,7 +139,7 @@
 			(mirror no)
 			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "../GERBER/")
+			(outputdirectory "../../JLCPCB_Order/ESC PCB/")
 		)
 	)
 	(net 0 "")
