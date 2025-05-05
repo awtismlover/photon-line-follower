@@ -502,7 +502,7 @@
       "plot": "../../JLCPCB_Order/ESC PCB/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "../../../../../../../../Pulpit/ESC_PCB.step",
       "svg": "",
       "vrml": ""
     },
