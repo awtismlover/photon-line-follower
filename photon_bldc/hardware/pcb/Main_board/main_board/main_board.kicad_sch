@@ -8613,6 +8613,7 @@
 	)
 	(label "HSE_OUT"
 		(at 88.9 73.66 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8623,6 +8624,7 @@
 	)
 	(label "LSE_IN"
 		(at 86.868 119.38 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8633,6 +8635,7 @@
 	)
 	(label "LSE_OUT"
 		(at 86.868 121.92 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -8643,6 +8646,7 @@
 	)
 	(label "HSE_IN"
 		(at 88.9 71.12 0)
+		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10745,6 +10749,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:VDC")
+		(at 304.8 229.87 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "04be8f31-1309-4c9b-b91a-38309e6632ac")
+		(property "Reference" "#PWR066"
+			(at 302.26 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VDC"
+			(at 309.626 229.87 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 304.8 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 304.8 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 304.8 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "23afa427-b1be-4464-863e-2c32c3e36cbd")
+		)
+		(instances
+			(project "main_board"
+				(path "/1e458b73-232f-493d-9935-9a4b4c039b92"
+					(reference "#PWR066")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 295.91 68.58 90)
 		(unit 1)
@@ -11765,6 +11834,74 @@
 			(project "main_board"
 				(path "/1e458b73-232f-493d-9935-9a4b4c039b92"
 					(reference "#PWR030")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x02")
+		(at 299.72 232.41 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "208f6819-da17-49ce-864f-8634f703efa1")
+		(property "Reference" "Turbo1"
+			(at 318.008 231.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x02"
+			(at 299.72 226.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "APhotonLibrary:PowerConn"
+			(at 299.72 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 299.72 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 299.72 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "0bbea2d8-62ca-49d1-978c-0ce8e6ce92fb")
+		)
+		(pin "1"
+			(uuid "fc768c7f-60f0-4f44-a61b-3b60013e327f")
+		)
+		(instances
+			(project "main_board"
+				(path "/1e458b73-232f-493d-9935-9a4b4c039b92"
+					(reference "Turbo1")
 					(unit 1)
 				)
 			)
@@ -13014,6 +13151,71 @@
 			(project "main_board"
 				(path "/1e458b73-232f-493d-9935-9a4b4c039b92"
 					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 304.8 232.41 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3e958e37-f3db-4e58-9153-cd2be9343c88")
+		(property "Reference" "#PWR067"
+			(at 311.15 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 309.372 232.41 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 304.8 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 304.8 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 304.8 232.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e9e9eb72-32c0-4e55-bc10-8ea8631adea9")
+		)
+		(instances
+			(project "main_board"
+				(path "/1e458b73-232f-493d-9935-9a4b4c039b92"
+					(reference "#PWR067")
 					(unit 1)
 				)
 			)
