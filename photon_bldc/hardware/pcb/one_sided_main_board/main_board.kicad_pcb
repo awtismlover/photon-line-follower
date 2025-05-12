@@ -137,9 +137,9 @@
 			(subtractmaskfromsilk no)
 			(outputformat 1)
 			(mirror no)
-			(drillshape 1)
+			(drillshape 0)
 			(scaleselection 1)
-			(outputdirectory "")
+			(outputdirectory "../JLCPCB_Order/main_board/")
 		)
 	)
 	(net 0 "")
@@ -4005,7 +4005,7 @@
 		(descr "Capacitor SMD 0603 (1608 Metric), square (rectangular) end terminal, IPC_7351 nominal, (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf), generated with kicad-footprint-generator")
 		(tags "capacitor")
 		(property "Reference" "C7"
-			(at -2.545 0.11 360)
+			(at -2.545 0.11 0)
 			(layer "F.SilkS")
 			(uuid "571a394c-fea8-46c8-8e59-1d4eb1aae820")
 			(effects
@@ -4016,7 +4016,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 0 1.43 360)
+			(at 0 1.43 0)
 			(layer "F.Fab")
 			(uuid "c7507d37-a31e-41aa-8d4c-79efb63906a0")
 			(effects
@@ -4223,7 +4223,7 @@
 			(uuid "e4130384-2599-48e3-8492-c63dbd9cf38f")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 0 360)
+			(at 0 0 0)
 			(layer "F.Fab")
 			(uuid "161dbadb-8936-42f6-a2fe-5d061a06b7cd")
 			(effects
