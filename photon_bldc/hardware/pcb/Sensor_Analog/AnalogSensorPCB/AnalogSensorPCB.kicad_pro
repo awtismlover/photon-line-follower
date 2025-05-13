@@ -559,7 +559,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../../JLCPCB_Order/analog_sensor/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
