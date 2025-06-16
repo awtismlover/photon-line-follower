@@ -1,0 +1,6 @@
+../Core/Src/Line_Follower.c:16:12:SensorRead	24	static
+../Core/Src/Line_Follower.c:121:6:motor_control	24	static
+../Core/Src/Line_Follower.c:127:6:sharp_turn	16	static
+../Core/Src/Line_Follower.c:145:6:forward_brake	24	static
+../Core/Src/Line_Follower.c:156:6:past_errors	24	static
+../Core/Src/Line_Follower.c:164:6:PID_control	40	static
