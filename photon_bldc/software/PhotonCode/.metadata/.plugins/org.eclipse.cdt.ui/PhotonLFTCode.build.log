@@ -1,0 +1,10 @@
+20:46:01 **** Incremental Build of configuration Debug for project PhotonLFTCode ****
+make -j8 all 
+arm-none-eabi-size  PhotonLFTCode.elf 
+   text	   data	    bss	    dec	    hex	filename
+  63804	    468	   3796	  68068	  109e4	PhotonLFTCode.elf
+Finished building: default.size.stdout
+ 
+
+20:46:02 Build Finished. 0 errors, 0 warnings. (took 845ms)
+
