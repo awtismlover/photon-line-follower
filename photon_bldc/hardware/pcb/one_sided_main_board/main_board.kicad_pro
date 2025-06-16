@@ -501,7 +501,7 @@
       "plot": "../JLCPCB_Order/main_board/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "../../../../../../../Pulpit/main_board.step",
       "svg": "",
       "vrml": ""
     },
