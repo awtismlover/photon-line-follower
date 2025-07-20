@@ -20,6 +20,7 @@
 #include "main.h"
 #include "adc.h"
 #include "dma.h"
+#include "app_fatfs.h"
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
@@ -32,6 +33,7 @@
 #include "SimpleParser.h"
 #include "RingBuffer.h"
 #include "motor.h"
+#include "dshot.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -52,7 +54,12 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-#define LOW_PASS_FILTER_ALPHA 0.7
+#define LOW_PASS_FILTER_ALPHA 0.99 //07
+
+/*FatFS variables*/
+FRESULT FatFsResult;
+FATFS SdFatFs;
+FIL SdCardFile;
 
 LineFollower_t PHOTON;
 motor_t Motor_L;
@@ -64,6 +71,12 @@ uint8_t RxData;
 RingBuffer_t RB, ReceiveBuffer;
 uint8_t ReceivedData[32];
 uint8_t ReceivedLines;
+uint16_t my_motor_value[3] = {0, 0, 0};
+
+uint32_t lasttime1;
+uint32_t LastTime2;
+uint32_t TurbineTime;
+uint8_t TurbineReady;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -119,11 +132,30 @@ int main(void)
   MX_USART1_UART_Init();
   MX_TIM5_Init();
   MX_TIM20_Init();
+  if (MX_FATFS_Init() != APP_OK) {
+    Error_Handler();
+  }
   /* USER CODE BEGIN 2 */
-  PHOTON.Turbine_Speed = 1488;
+  /*Motors settings (m/s)*/
+  PHOTON.Base_speed_R = 1.1;
+  PHOTON.Base_speed_L = 1.1;
+  PHOTON.Max_speed_L = 1.1;
+  PHOTON.Max_speed_R = 1.1;
+  PHOTON.Sharp_bend_speed_right = -0.35;
+  PHOTON.Sharp_bend_speed_left = -0.9;
+  PHOTON.Bend_speed_right = -0.35;
+  PHOTON.Bend_speed_left = -0.95;
+  /*PID*/
+  PHOTON.Kp = 0.015;
+  PHOTON.Kd = 0.08;
+/*Turbine stock settings*/
+  PHOTON.Turbine_Speed = 0;
   PHOTON.Turbine_Prep_Time = 1000;
+  /*1m/s -> 100Banans/s*/
+  Motor_L.PWM_to_MS_Scaler_value = 70;//OK 49
+  Motor_R.PWM_to_MS_Scaler_value = 70;//OK 49
 
-  //200Hz and 1KHz
+  //1Hz and 2KHz timers
   HAL_TIM_Base_Start_IT(&htim20);
   HAL_TIM_Base_Start_IT(&htim5);
 
@@ -132,27 +164,37 @@ int main(void)
   HAL_ADC_Start_DMA(&hadc2, (uint32_t*)&PHOTON.Adc2_Values, 4);
   HAL_UART_Receive_IT(&huart1, &RxData, 1);
 
-  uint32_t lasttime1 = HAL_GetTick();
-  uint32_t LastTime2 = HAL_GetTick();
-  uint32_t TurbineTime = HAL_GetTick();
-  uint8_t TurbineReady = 0;
+  /*SD Card file initialization*/
+  FatFsResult = f_mount(&SdFatFs, "", 1);
+  //FatFsResult = f_open(&SdCardFile, "PHOTON.txt", FA_WRITE|FA_OPEN_APPEND);
 
-  /*last sensor out of the tape timer*/
+  lasttime1 = HAL_GetTick();
+  LastTime2 = HAL_GetTick();
+  TurbineTime = HAL_GetTick();
+  TurbineReady = 0;
+
+
+  /*Sensor Preparation and entering STOP mode*/
   PHOTON.LastEndTimer = HAL_GetTick();
   PHOTON.treshold = 3000;//1500
   PHOTON.LineFollowing = 0;
+  PHOTON.SimpleMapState = 0;
+  int CurrentPoint = 0;
 
   /* Encoders initialization*/
   HAL_TIM_Encoder_Start(&htim4, TIM_CHANNEL_ALL); // Left Encoder
   HAL_TIM_Encoder_Start(&htim1, TIM_CHANNEL_ALL); // Right Encoder
   //         Motor     KP    KI
-  Motor_Init(&Motor_R, 0.1, 0.2);//0.1 0.2
-  Motor_Init(&Motor_L, 0.1, 0.2);
+  Motor_Init(&Motor_R, 0.0, 0.0);//0.1 0.2 // 0.7 0.7
+  Motor_Init(&Motor_L, 0.0, 0.0);
   LowPassFilter_Init(&Motor_R.EncoderRpmFilter, LOW_PASS_FILTER_ALPHA);
   LowPassFilter_Init(&Motor_L.EncoderRpmFilter, LOW_PASS_FILTER_ALPHA);
   LowPassFilter_Init(&Motor_L.MetersPerSecondLPF, LOW_PASS_FILTER_ALPHA);
   LowPassFilter_Init(&Motor_R.MetersPerSecondLPF, LOW_PASS_FILTER_ALPHA);
 
+
+  /*Initialize DSHOT communication with ESCs*/
+  dshot_init(DSHOT600);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -162,52 +204,12 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	  if(HAL_GetTick() < (LastTime2 + 4000))//5000
-	  {
-		  BLDC_ARM(&PHOTON.MotorL, &htim2, TIM_CHANNEL_4);
-		  BLDC_ARM(&PHOTON.MotorR, &htim3, TIM_CHANNEL_4);
-		  BLDC_ARM(&PHOTON.MotorT, &htim3, TIM_CHANNEL_3);
-	  }
-	  else
-	  {
-		  if(PHOTON.LineFollowing == 0)
-		  {
-			  /*Set motors speed to 0*/
-		 	  PHOTON.MotorR.Speed = 1488;
-		 	  BLDC_Set_Speed(&PHOTON.MotorR);
-		 	  PHOTON.MotorL.Speed = 1488;
-		 	  BLDC_Set_Speed(&PHOTON.MotorL);
-		 	  PHOTON.MotorT.Speed = 1488;
-		 	  BLDC_Set_Speed(&PHOTON.MotorT);
-		 	  TurbineReady = 0;
-		  }
-		  else
-		  {
-
-			  if(TurbineReady == 0)
-			  {
-				  TurbineTime = HAL_GetTick();
-				  PHOTON.MotorT.Speed = PHOTON.Turbine_Speed;
-				  BLDC_Set_Speed(&PHOTON.MotorT);
-				  TurbineReady = 1;
-			  }
-			  else if((TurbineReady == 1) && (HAL_GetTick() > (TurbineTime + PHOTON.Turbine_Prep_Time)))
-			  {
-				  /*Update Motors speed*/
-				  PHOTON.MotorT.Speed = PHOTON.Turbine_Speed;
-				  BLDC_Set_Speed(&PHOTON.MotorL);
-				  BLDC_Set_Speed(&PHOTON.MotorR);
-				  BLDC_Set_Speed(&PHOTON.MotorT);
-			  }
-		  }
-	  }
-
 
 	  /*Blink LED1*/
 	  if(HAL_GetTick() > (lasttime1 + 500))
 	  {
-		  lasttime1 = HAL_GetTick();
-		  HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+		  //lasttime1 = HAL_GetTick();
+		  //HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
 	  }
 	  /*Bluetooth check*/
  	  if(ReceivedLines > 0)
@@ -217,7 +219,21 @@ int main(void)
 
  		  ReceivedLines--;
  	  }
-//	PID_control(&PHOTON);
+ 	  if(PHOTON.SimpleMapState == 1)
+ 	  {
+ 		  float DistanceTraveled = (Motor_L.DistanceTraveled + Motor_R.DistanceTraveled)/2;
+
+ 		  if(DistanceTraveled >= PHOTON.ChangePoint[CurrentPoint][0])
+ 		  {
+ 			  //change mode
+ 			 Read_Settings_From_EEprom(&PHOTON, PHOTON.ChangePoint[CurrentPoint][1]);
+ 			 CurrentPoint++;
+ 		  }
+ 		  if(CurrentPoint > PHOTON.ChangePointsCount)
+ 		  {
+ 			  CurrentPoint = PHOTON.ChangePointsCount;
+ 		  }
+ 	  }
 
   }
   /* USER CODE END 3 */
@@ -288,23 +304,84 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	//PID loop 200Hz
+	//Encoders sampling and mapping 1KHz
 	if(htim->Instance == TIM20)
 	{
-		PID_control(&PHOTON);
-	}
-	//Motor control and mapping 1KHz
-	if(htim->Instance == TIM5)
-	{
 		/*Get Encoder values*/
-		Motor_L.EncoderValue = __HAL_TIM_GET_COUNTER(&htim4);
-		Motor_R.EncoderValue = __HAL_TIM_GET_COUNTER(&htim1);
+		Motor_L.EncoderValue = __HAL_TIM_GET_COUNTER(&htim4);//4
+		Motor_R.EncoderValue = __HAL_TIM_GET_COUNTER(&htim1);//1
 		/*Set central point for encoders again*/
 		htim4.Instance->CNT = 20000;
 		htim1.Instance->CNT = 20000;
 
 	    Motor_CalculateSpeed(&Motor_R);
 	    Motor_CalculateSpeed(&Motor_L);
+
+	}
+	//Motor control and PID 2KHz
+	if(htim->Instance == TIM5)
+	{
+		/*Startup, control of DSHOT communication & motor management*/
+		PID_control(&PHOTON);
+		dshot_write(my_motor_value);
+
+		  /*ESC arming*/
+		  if(HAL_GetTick() < (LastTime2 + 2000))//2000
+		  {
+				  my_motor_value[0] = 0;
+				  my_motor_value[1] = 0;
+				  my_motor_value[2] = 0;
+		  }
+		  else
+		  {
+			  /*Stop all motors*/
+			  if(PHOTON.LineFollowing == 0)
+			  {
+				  /*Set motors speed to 0*/
+				  my_motor_value[0] = 48;
+				  my_motor_value[1] = 48;
+				  my_motor_value[2] = 48;
+			 	  TurbineReady = 0;
+			  }
+			  else
+			  {
+				  /*Starting sequence and line following*/
+				  if(TurbineReady == 0)
+				  {
+					  TurbineTime = HAL_GetTick();
+					  my_motor_value[0] = 48;
+					  my_motor_value[1] = 48;
+					  my_motor_value[2] = PHOTON.Turbine_Speed;// Creates vacuum under robot
+					  TurbineReady = 1;
+				  }
+				  else if((TurbineReady == 1) && (HAL_GetTick() > (TurbineTime + PHOTON.Turbine_Prep_Time)))
+				  {
+					  /*Following the line after the vacuuming part is done*/
+					  my_motor_value[2] = PHOTON.Turbine_Speed;
+					  my_motor_value[1] = PHOTON.MotorL.Speed;//L
+					  my_motor_value[0] = PHOTON.MotorR.Speed;//R
+
+					  /*Update Average & Max Speed (m/s)*/
+					  float currentSpeed = (Motor_R.MetersPerSecondLPF.output + Motor_L.MetersPerSecondLPF.output)/2;
+					  PHOTON.AverageSpeedSum += currentSpeed;
+					  PHOTON.AverageSpeedNum++;
+					  PHOTON.AverageSpeed = PHOTON.AverageSpeedSum / PHOTON.AverageSpeedNum;
+
+					  if(currentSpeed > PHOTON.MaxSpeed)
+					  {
+						  PHOTON.MaxSpeed = currentSpeed;
+					  }
+				  }
+				  else
+				  {
+					  /*Vacuuming for given time*/
+					  my_motor_value[0] = 48;
+					  my_motor_value[1] = 48;
+					  my_motor_value[2] = PHOTON.Turbine_Speed;
+				  }
+			  }
+		  }
+
 	}
 }
 /* USER CODE END 4 */

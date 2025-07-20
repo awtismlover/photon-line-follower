@@ -1,0 +1,12 @@
+../Core/Src/dshot.c:38:6:dshot_init	16	static
+../Core/Src/dshot.c:45:6:dshot_write	16	static
+../Core/Src/dshot.c:61:17:dshot_choose_type	16	static
+../Core/Src/dshot.c:77:13:dshot_set_timer	32	static
+../Core/Src/dshot.c:101:13:dshot_dma_tc_callback	24	static
+../Core/Src/dshot.c:124:13:dshot_put_tc_callback_function	4	static
+../Core/Src/dshot.c:132:13:dshot_start_pwm	8	static
+../Core/Src/dshot.c:141:17:dshot_prepare_packet	32	static
+../Core/Src/dshot.c:165:13:dshot_prepare_dmabuffer	24	static
+../Core/Src/dshot.c:180:13:dshot_prepare_dmabuffer_all	16	static
+../Core/Src/dshot.c:187:13:dshot_dma_start	8	static
+../Core/Src/dshot.c:194:13:dshot_enable_dma_request	4	static

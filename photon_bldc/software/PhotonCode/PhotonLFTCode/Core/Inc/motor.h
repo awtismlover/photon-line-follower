@@ -10,12 +10,6 @@
 #include "main.h"
 #include "LowPassFilter.h"
 
-#define RPM_TO_MH 0.20833333333f
-#define IMPULSES_PER_ROTATION 2000.0f
-#define GEAR_RATIO 10.0f
-#define MEASUREMENT_PERIOD 0.001f // 0.001s 1KHZ
-#define WHEEL_CIRCUMFERENCE 0.08f
-
 
 typedef struct
 {
@@ -29,6 +23,7 @@ typedef struct
 	float MetersPerHour;
 	float KilometersPerHour;
 	float MetersPerSecond;
+	float PreviousMetersSecond;
 
 	LowPassFilter_t EncoderRpmFilter;
 	LowPassFilter_t MetersPerSecondLPF;
@@ -38,6 +33,9 @@ typedef struct
 	float LpfDistanceInMeasurement;
 	float DistanceTraveled;
 
+
+	/*Synchronizing PWM with m/s*/
+	float PWM_to_MS_Scaler_value;
 
 	/*PI algorithm*/
 	float set_speed;

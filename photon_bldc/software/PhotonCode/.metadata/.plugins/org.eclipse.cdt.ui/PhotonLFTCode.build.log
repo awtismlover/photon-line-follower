@@ -1,10 +1,17 @@
-20:46:01 **** Incremental Build of configuration Debug for project PhotonLFTCode ****
+03:47:18 **** Incremental Build of configuration Debug for project PhotonLFTCode ****
 make -j8 all 
+arm-none-eabi-gcc "../Core/Src/SimpleParser.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/SimpleParser.d" -MT"Core/Src/SimpleParser.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/SimpleParser.o"
+arm-none-eabi-gcc -o "PhotonLFTCode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\SNYDE\Documents\GitHub\photon-line-follower\photon_bldc\software\PhotonCode\PhotonLFTCode\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PhotonLFTCode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PhotonLFTCode.elf
+ 
 arm-none-eabi-size  PhotonLFTCode.elf 
+arm-none-eabi-objdump -h -S PhotonLFTCode.elf  > "PhotonLFTCode.list"
    text	   data	    bss	    dec	    hex	filename
-  63804	    468	   3796	  68068	  109e4	PhotonLFTCode.elf
+  80620	    492	   5828	  86940	  1539c	PhotonLFTCode.elf
 Finished building: default.size.stdout
  
+Finished building: PhotonLFTCode.list
+ 
 
-20:46:02 Build Finished. 0 errors, 0 warnings. (took 845ms)
+03:47:21 Build Finished. 0 errors, 0 warnings. (took 2s.608ms)
 

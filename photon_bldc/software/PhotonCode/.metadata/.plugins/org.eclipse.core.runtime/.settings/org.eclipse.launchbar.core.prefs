@@ -8,3 +8,5 @@ org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PhotonCode\ Debug/activeLaunchT
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PhotonLFTCode\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PhotonLFTCode\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:TEST\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:TEST\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:TEST2\ Debug/activeLaunchMode=run

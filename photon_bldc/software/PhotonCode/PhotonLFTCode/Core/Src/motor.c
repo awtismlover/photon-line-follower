@@ -8,6 +8,13 @@
 #include "main.h"
 #include "motor.h"
 #include "LowPassFilter.h"
+
+/*Configuration*/
+#define IMPULSES_PER_ROTATION 2000.0f
+#define MEASUREMENT_PERIOD 0.001f // 0.001s 1KHZ
+#define WHEEL_CIRCUMFERENCE 0.0785f
+#define DIRECTION 1
+
 void Motor_CalculateSpeed(motor_t *motor)
 {
 	// (0.0) --  How many impulses did we get ?
@@ -15,40 +22,39 @@ void Motor_CalculateSpeed(motor_t *motor)
 	impulses = (int32_t)motor->EncoderValue - 20000;
 
 	// (0.1) -- Invert direction to " FORWARD "
-	impulses = impulses * -1;
+	impulses = impulses * DIRECTION;
 
 	/*Distance traveled in 0.001s (One cycle)*/
+	motor->DistanceInMeasurement = ((float)impulses * WHEEL_CIRCUMFERENCE) / (IMPULSES_PER_ROTATION);
 
-	motor->DistanceInMeasurement = ((float)impulses * WHEEL_CIRCUMFERENCE) / (IMPULSES_PER_ROTATION * GEAR_RATIO);
 	/*Whole distance wheel has traveled*/
 	motor->DistanceTraveled = motor->DistanceTraveled + motor->DistanceInMeasurement;
 
 	/*Get meters per second*/
-	/* m/s = m/ms * 1000 */
-	motor->MetersPerSecond = motor->DistanceInMeasurement * -1000.0f; // 1s = 1000ms
+	motor->MetersPerSecond = motor->DistanceInMeasurement * 1000.0f; // 1s = 1000ms
 
+	/*Max Speed is 10m/s*/
+	if((motor->MetersPerSecond > 10)&&(motor->MetersPerSecond < -10))
+	{
+		motor->MetersPerSecond = motor->PreviousMetersSecond;
+	}
 	LowPassFilter_Update(&motor->MetersPerSecondLPF, motor->MetersPerSecond);
+	motor->PreviousMetersSecond = motor->MetersPerSecondLPF.output;
 
-	motor->LpfDistanceInMeasurement = motor->MetersPerSecondLPF.output / -1000.0f;
-
+	motor->LpfDistanceInMeasurement = motor->MetersPerSecondLPF.output / 1000.0f;
 
     //How many times motor has rotated ?
 	motor->NumberOfRotations = (float)impulses / 2000.0f;
 	//Rotations per minute based on period and impulses
-	motor->RPM = motor->NumberOfRotations * -60000.0f; //rotates per minute
+	motor->RPM = motor->NumberOfRotations * 60000.0f; //rotates per minute
 
-	/*I know some of them are "magic values" other way it doesn't want to work*/
-
-	if((motor->RPM >= 5000) || (motor->RPM <= -5000)) // |max| = 5000 Other readings are trash
+	/*Max RPM is 8K*/
+	if((motor->RPM > 8000) || (motor->RPM < -8000)) // |max| = 8000 Other readings are trash
 	{
 		motor->RPM = motor->PreviousRPM;
 	}
 	//Motor_SavePreviousRPMs(motor, motor->RPM);
 	LowPassFilter_Update(&motor->EncoderRpmFilter, motor->RPM);
-	motor->MetersPerHour = motor->EncoderRpmFilter.output / RPM_TO_MH;
-	//motor->MetersPerHour = motor->RPM / RPM_TO_MH;
-	motor->KilometersPerHour = motor->MetersPerHour / 1000;
-	motor->MetersPerSecond = motor->MetersPerHour / 3600;
 	motor->PreviousRPM = motor->EncoderRpmFilter.output;
 }
 
@@ -61,30 +67,29 @@ void Motor_Init(motor_t *motor, float Kp, float Ki)
 
 void PI_Loop(motor_t *motor)
 {
-	motor->current_speed = motor->MetersPerSecond * 23; // From m/s to bananas per second //65
+	motor->current_speed = motor->MetersPerSecondLPF.output * motor->PWM_to_MS_Scaler_value;;
 
 	//Get absolute speed
 	if(motor->current_speed < 0)
 	{
 		motor->current_speed = motor->current_speed * -1;
-		//Zastanów się czy faktycznie to jest potrzebne
 	}
 
 	//Get the difference between speed that we need and actual speed
 	motor->error =  motor->set_speed - motor->current_speed;
 
-	//Add current error to previous errors
-	motor->Error_sum = motor->Error_sum +motor->P;
-	if(motor->Error_sum > 100)
+	//Add current error to previous errors (Max Error 1m/s)
+	motor->Error_sum = motor->Error_sum + motor->error;
+	if(motor->Error_sum > 10)
 	{
-		motor->Error_sum = 100;
+		motor->Error_sum = 10;
 	}
-	else if(motor->Error_sum < -100)
+	else if(motor->Error_sum < -10)
 	{
-		motor->Error_sum = -100;
+		motor->Error_sum = -10;
 	}
 
 	//Calculate new speed with PI parameters
-	motor->speed = motor->set_speed + (motor->error * motor->kp) + (motor->Error_sum *motor->ki);
+	motor->speed = (motor->set_speed + (motor->error * motor->kp) + (motor->Error_sum *motor->ki));
 
 }

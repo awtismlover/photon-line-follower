@@ -16,6 +16,7 @@ typedef struct
 	uint32_t LastTime;
 	float Speed;
 	int iteration;
+	//pid do rn if not then fuck you bitch
 
 }BLDCmotor_t;
 
