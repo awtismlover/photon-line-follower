@@ -14,17 +14,17 @@ typedef struct
 	float Kp;
 	float Kd;
 
-	int Turbine_Speed;
+	float Turbine_Speed;
 	uint32_t Turbine_Prep_Time;
-	int Base_speed_R;
-	int Base_speed_L;
-	int Max_speed_R;
-	int Max_speed_L;
+	float Base_speed_R;
+	float Base_speed_L;
+	float Max_speed_R;
+	float Max_speed_L;
 
-	int Sharp_bend_speed_right;
-	int Sharp_bend_speed_left;
-	int Bend_speed_right;
-	int Bend_speed_left;
+	float Sharp_bend_speed_right;
+	float Sharp_bend_speed_left;
+	float Bend_speed_right;
+	float Bend_speed_left;
 
 	float battery_voltage;
 	uint16_t Adc1_Values[9];
@@ -35,6 +35,17 @@ typedef struct
 	BLDCmotor_t MotorR;
 	BLDCmotor_t MotorL;
 	BLDCmotor_t MotorT;
+	float MaxSpeed;
+	float AverageSpeed;
+	float AverageSpeedSum;
+	float AverageSpeedNum;
+	float SmallestValueR;
+	float SmallestValueL;
+
+	/*SimpleMap*/
+	float ChangePoint[32][2];
+	int ChangePointsCount;
+	uint8_t SimpleMapState;
 
 
 	//Sensor
@@ -48,16 +59,22 @@ typedef struct
 
 
 	//PID
-	int P,D;
+	float P,D;
 	int Errors[10];
-	int Last_error;
+	float Last_error;
 
 	uint8_t LineFollowing;
+
+	//DickShot
+	uint32_t DSHOTTimer;
+	uint32_t PreviousTimeDshot;
+	uint32_t HighestDelayDshot;
 
 
 } LineFollower_t;
 
 //Functions
 void PID_control(LineFollower_t *LF);
+float GetAverageSpeed(LineFollower_t *LF);
 
 #endif /* INC_LINE_FOLLOWER_H_ */

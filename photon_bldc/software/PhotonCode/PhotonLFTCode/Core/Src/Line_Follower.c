@@ -8,10 +8,13 @@
 #include "Line_Follower.h"
 #include "BLDC_Motor.h"
 #include "tim.h"
+#include "motor.h"
 
 extern LineFollower_t PHOTON;
+extern motor_t Motor_L;
+extern motor_t Motor_R;
 
-#define PI_MOTOR_SPEED_REGULATION 0
+#define PI_MOTOR_SPEED_REGULATION 1
 
 static int SensorRead(LineFollower_t *LF)
 {
@@ -20,72 +23,72 @@ static int SensorRead(LineFollower_t *LF)
 
 	if (LF->Adc1_Values[0] > LF->treshold)
 	{
-		pos += 12000;
+		pos += 1000;
 		active++;
-		if(HAL_GetTick() > (LF->LastEndTimer + 50))
+		if(HAL_GetTick() > (LF->LastEndTimer + 1))
 		{
  			LF->LastEndTimer = HAL_GetTick();
-			LF->Last_end = 0;
+			LF->Last_end = 1;
 		}
 	}
 	if (LF->Adc1_Values[1] > LF->treshold)
 	{
-		pos += 11000;
+		pos += 2000;
 		active++;
 	}
 	if (LF->Adc1_Values[2] > LF->treshold)
 	{
-		pos += 10000;
+		pos += 3000;
 		active++;
 	}
 	if (LF->Adc1_Values[3] > LF->treshold)
 	{
-		pos += 9000;
+		pos += 4000;
 		active++;
 	}
 	if (LF->Adc1_Values[5] > LF->treshold)
 	{
-		pos += 8000;
+		pos += 5000;
 		active++;
 	}
 	if (LF->Adc1_Values[6] > LF->treshold)
 	{
-		pos += 7000;
+		pos += 6000;
 		active++;
 	}
 	if (LF->Adc1_Values[7] > LF->treshold)
 	{
-		pos += 6000;
+		pos += 7000;
 		active++;
 	}
 	if (LF->Adc1_Values[8] > LF->treshold)
 	{
-		pos += 5000;
+		pos += 8000;
 		active++;
 	}
 	if (LF->Adc2_Values[0] > LF->treshold)
 	{
-		pos += 4000;
+		pos += 9000;
 		active++;
 	}
 	if (LF->Adc2_Values[1] > LF->treshold)
 	{
-		pos += 3000;
+		pos += 10000;
 		active++;
 	}
 	if (LF->Adc2_Values[2] > LF->treshold)
 	{
-		pos += 2000;
+		pos += 11000;
 		active++;
 	}
 	if (LF->Adc2_Values[3] > LF->treshold)
 	{
-		pos += 1000;
+		pos += 12000;
 		active++;
-		if(HAL_GetTick() > (LF->LastEndTimer + 50))
+		if(HAL_GetTick() > (LF->LastEndTimer + 1))
 		{
 			LF->LastEndTimer = HAL_GetTick();
-			LF->Last_end = 1;
+			LF->Last_end = 0;
 		}
 	}
 
@@ -105,23 +108,63 @@ static int SensorRead(LineFollower_t *LF)
 	}
 	else
 	{
-//		if(LF->Last_end == 1)
-//		{
-//			return 1000;
-//		}
-//		else
-//		{
-//			return 12000;
-//		}
-		return 0;
+		if(LF->Last_end == 1)
+		{
+			LF->SensorPosition = 12000;
+		}
+		else
+		{
+			LF->SensorPosition = 1000;
+		}
+//		return 0;
 	}
 
 	return LF->SensorPosition;
 }
-void motor_control(LineFollower_t *LF, float pos_right, float pos_left)
+void motor_control(LineFollower_t* LF, float pos_right, float pos_left)
 {
-	PHOTON.MotorL.Speed = 1488 - pos_left;
-	PHOTON.MotorR.Speed = 1488 - pos_right;
+	if(pos_left >= 0)
+	{
+		#ifdef PI_MOTOR_SPEED_REGULATION
+			Motor_L.set_speed = pos_left;
+			PI_Loop(&Motor_L);
+			PHOTON.MotorL.Speed = 1048 + Motor_L.speed;
+		#else
+			PHOTON.MotorL.Speed = 1048 + pos_left;
+		#endif
+	}
+	else
+	{
+		#ifdef PI_MOTOR_SPEED_REGULATION
+			Motor_L.set_speed = pos_left;
+			PHOTON.MotorL.Speed = 48 - Motor_L.speed;
+		#else
+			PHOTON.MotorL.Speed = 48 - pos_left;
+		#endif
+	}
+	if(pos_right >= 0)
+	{
+		#ifdef PI_MOTOR_SPEED_REGULATION
+			Motor_R.set_speed = pos_right;
+			PI_Loop(&Motor_R);
+			PHOTON.MotorR.Speed = 1048 + Motor_R.speed;
+		#else
+			PHOTON.MotorR.Speed = 1048 + pos_right;
+		#endif
+	}
+	else
+	{
+		#ifdef PI_MOTOR_SPEED_REGULATION
+			Motor_R.set_speed = pos_right;
+			PI_Loop(&Motor_R);
+			PHOTON.MotorR.Speed = 48 - Motor_R.speed;
+		#else
+			PHOTON.MotorR.Speed = 48 - pos_right;
+		#endif
+
+	}
+
+
 
 }
 void sharp_turn(LineFollower_t *LF)
@@ -129,28 +172,40 @@ void sharp_turn(LineFollower_t *LF)
 
 	if (LF->Last_idle < 25)
 	{
+		HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
 		if (LF->Last_end == 1)
-			motor_control(LF, LF->Sharp_bend_speed_right, LF->Sharp_bend_speed_left);
+		{
+			motor_control(&PHOTON, PHOTON.Sharp_bend_speed_right, PHOTON.Sharp_bend_speed_left);
+		}
 		else
-			motor_control(LF, LF->Sharp_bend_speed_left, LF->Sharp_bend_speed_right);
+		{
+			motor_control(&PHOTON, PHOTON.Sharp_bend_speed_left, PHOTON.Sharp_bend_speed_right);
+		}
 	}
 	else
 	{
+		HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
 		if (LF->Last_end == 1)
-			motor_control(LF, LF->Bend_speed_right, LF->Bend_speed_left);
+		{
+			motor_control(&PHOTON, PHOTON.Bend_speed_right, PHOTON.Bend_speed_left);
+		}
 		else
-			motor_control(LF, LF->Bend_speed_left, LF->Bend_speed_right);
+		{
+			motor_control(&PHOTON, PHOTON.Bend_speed_left, PHOTON.Bend_speed_right);
+		}
 	}
 }
-void forward_brake(LineFollower_t *LF, int pos_right, int pos_left)
+void forward_brake(LineFollower_t *LF, float pos_right, float pos_left)
 {
 	if (LF->actives == 0)
 	{
-		sharp_turn(LF);
+		sharp_turn(&PHOTON);
 	}
 	else
 	{
-	  motor_control(LF, pos_right, pos_left);
+	  motor_control(&PHOTON, pos_right, pos_left);
 	}
 }
 void past_errors (LineFollower_t *LF, int error)
@@ -163,22 +218,25 @@ void past_errors (LineFollower_t *LF, int error)
 
 void PID_control(LineFollower_t *LF)
 {
+	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
+
   uint16_t position = SensorRead(LF);
-  int error = 6500 - position;
-  int errordif = error - LF->Last_error;
+  float error = 6500 - position;
+  //int errordif = error - LF->Last_error;
   LF->Last_error = error;
 
-//  LF->P = error;
-//  LF->D = error - LF->Last_error;
-//  LF->Last_error = error;
-//
-//  int motorspeed = LF->P*LF->Kp + LF->D*LF->Kd;
+  LF->P = error;
+  LF->D = error - LF->Last_error;
+  LF->Last_error = error;
 
-//  int motorspeedl = LF->Base_speed_L + motorspeed;
-//  int motorspeedr = LF->Base_speed_R - motorspeed;
+  float motorspeed = LF->P*LF->Kp + LF->D*LF->Kd;
 
-  int motorspeedl = LF->Base_speed_L + (LF->Kp*error) + (LF->Kd*errordif);
-  int motorspeedr = LF->Base_speed_R - (LF->Kp*error) - (LF->Kd*errordif);
+  float motorspeedl = LF->Base_speed_L + motorspeed;
+  float motorspeedr = LF->Base_speed_R - motorspeed;
+
+//  int motorspeedl = LF->Base_speed_L + (LF->Kp*error) + (LF->Kd*errordif);
+//  int motorspeedr = LF->Base_speed_R - (LF->Kp*error) - (LF->Kd*errordif);
 
   if (motorspeedl > LF->Max_speed_L)
     motorspeedl = LF->Max_speed_L;

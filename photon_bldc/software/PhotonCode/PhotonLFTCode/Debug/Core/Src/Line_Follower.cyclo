@@ -1,6 +1,6 @@
-../Core/Src/Line_Follower.c:16:12:SensorRead	17
-../Core/Src/Line_Follower.c:121:6:motor_control	1
-../Core/Src/Line_Follower.c:127:6:sharp_turn	4
-../Core/Src/Line_Follower.c:145:6:forward_brake	2
-../Core/Src/Line_Follower.c:156:6:past_errors	2
-../Core/Src/Line_Follower.c:164:6:PID_control	3
+../Core/Src/Line_Follower.c:19:12:SensorRead	18
+../Core/Src/Line_Follower.c:124:6:motor_control	3
+../Core/Src/Line_Follower.c:170:6:sharp_turn	4
+../Core/Src/Line_Follower.c:200:6:forward_brake	2
+../Core/Src/Line_Follower.c:211:6:past_errors	2
+../Core/Src/Line_Follower.c:219:6:PID_control	3

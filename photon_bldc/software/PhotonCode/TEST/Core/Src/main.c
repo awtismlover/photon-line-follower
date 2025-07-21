@@ -23,7 +23,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,7 +43,6 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -87,10 +85,11 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_TIM3_Init();
   MX_TIM5_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
+  //HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
+  //dshot_init(DSHOT600);
+  uint32_t lasttime1 = HAL_GetTick();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -105,6 +104,14 @@ int main(void)
 //	  HAL_Delay(500);
 //	  HAL_GPIO_WritePin(LD2_GPIO_Port, LD2_Pin, GPIO_PIN_RESET);
 //	  HAL_Delay(500);
+	  if(HAL_GetTick() > (lasttime1 + 2000))
+	  {
+		  lasttime1 = HAL_GetTick();
+		  HAL_GPIO_TogglePin(LD2_GPIO_Port, LD2_Pin);
+//		  HAL_GPIO_TogglePin(TESTPIN1_GPIO_Port, TESTPIN1_Pin);
+//		  HAL_GPIO_TogglePin(TESTPIIN2_GPIO_Port, TESTPIIN2_Pin);
+	  }
+	  //dshot_write(my_motor_value);
   }
   /* USER CODE END 3 */
 }

@@ -34,7 +34,8 @@ Core/Src/Line_Follower.o: ../Core/Src/Line_Follower.c ../Core/Inc/main.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h \
  ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h \
  ../Core/Inc/Line_Follower.h ../Core/Inc/BLDC_Motor.h \
- ../Core/Inc/BLDC_Motor.h ../Core/Inc/tim.h ../Core/Inc/main.h
+ ../Core/Inc/BLDC_Motor.h ../Core/Inc/tim.h ../Core/Inc/main.h \
+ ../Core/Inc/motor.h ../Core/Inc/LowPassFilter.h
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
@@ -75,3 +76,5 @@ Core/Src/Line_Follower.o: ../Core/Src/Line_Follower.c ../Core/Inc/main.h \
 ../Core/Inc/BLDC_Motor.h:
 ../Core/Inc/tim.h:
 ../Core/Inc/main.h:
+../Core/Inc/motor.h:
+../Core/Inc/LowPassFilter.h:
