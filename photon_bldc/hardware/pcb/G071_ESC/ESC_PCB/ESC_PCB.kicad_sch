@@ -1785,102 +1785,6 @@
 				)
 			)
 		)
-		(symbol "GND_2"
-			(power)
-			(pin_numbers hide)
-			(pin_names
-				(offset 0) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "#PWR"
-				(at 0 -6.35 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Value" "GND"
-				(at 0 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "global power"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "GND_2_0_1"
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "GND_2_1_1"
-				(pin power_in line
-					(at 0 0 270)
-					(length 0)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "GND_3"
 			(power)
 			(pin_numbers hide)
@@ -4944,12 +4848,6 @@
 		(uuid "30ff207a-93ee-4760-b503-3719e642e9f5")
 	)
 	(junction
-		(at 21.59 38.1)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "480f5db7-5c83-42e2-bb21-17b738b67891")
-	)
-	(junction
 		(at 278.13 30.48)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5122,6 +5020,10 @@
 		(uuid "d383976f-7d6c-40bd-844c-c2058ad10310")
 	)
 	(no_connect
+		(at 31.75 38.1)
+		(uuid "d61ab711-8120-418c-89ff-87784468847a")
+	)
+	(no_connect
 		(at 59.69 50.8)
 		(uuid "e1776894-9cc4-45ac-87bf-f71046059f12")
 	)
@@ -5164,16 +5066,6 @@
 			(type default)
 		)
 		(uuid "09c28ac6-bac9-4b4e-a695-7abf280a737a")
-	)
-	(wire
-		(pts
-			(xy 21.59 38.1) (xy 31.75 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0b94ad15-d88d-44ba-970a-a1137d5518a4")
 	)
 	(wire
 		(pts
@@ -5474,16 +5366,6 @@
 			(type default)
 		)
 		(uuid "6d9fd6f7-f504-4266-ade8-c23719ae37cb")
-	)
-	(wire
-		(pts
-			(xy 21.59 35.56) (xy 21.59 38.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6dd156ab-a771-4313-877c-2b4346cc72dd")
 	)
 	(wire
 		(pts
@@ -7724,7 +7606,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 80.01 151.638 90)
 			(effects
 				(font
@@ -7940,7 +7822,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 153.162 153.67 90)
 			(effects
 				(font
@@ -8009,7 +7891,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Fortior Tech FD6288Q driver library:TSON-8(3.1x3.1)"
+		(property "Footprint" "MOSFET_lib:NCEP3065"
 			(at 266.7 81.28 0)
 			(effects
 				(font
@@ -8376,7 +8258,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 194.31 85.598 90)
 			(effects
 				(font
@@ -8510,7 +8392,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 120.65 151.638 90)
 			(effects
 				(font
@@ -8579,7 +8461,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
 			(at 96.2152 80.01 0)
 			(effects
 				(font
@@ -8783,7 +8665,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
 			(at 117.8052 44.45 0)
 			(effects
 				(font
@@ -8916,7 +8798,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 223.52 99.568 90)
 			(effects
 				(font
@@ -8985,7 +8867,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
 			(at 119.0752 80.01 0)
 			(effects
 				(font
@@ -9053,7 +8935,7 @@
 				)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
+		(property "Footprint" "LED_SMD:LED_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 55.88 102.87 0)
 			(effects
 				(font
@@ -9186,7 +9068,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Fortior Tech FD6288Q driver library:TSON-8(3.1x3.1)"
+		(property "Footprint" "MOSFET_lib:NCEP3065"
 			(at 208.28 81.28 0)
 			(effects
 				(font
@@ -9285,7 +9167,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Fortior Tech FD6288Q driver library:TSON-8(3.1x3.1)"
+		(property "Footprint" "MOSFET_lib:NCEP3065"
 			(at 237.49 95.25 0)
 			(effects
 				(font
@@ -9352,73 +9234,6 @@
 			(project "ESC_PCB"
 				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
 					(reference "Q5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_name "GND_2")
-		(lib_id "power:GND")
-		(at 21.59 45.72 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3c34fa71-ee47-4956-8b61-56b8ab336de2")
-		(property "Reference" "#PWR03"
-			(at 21.59 52.07 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 21.59 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 21.59 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 21.59 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 21.59 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ea12357f-2c63-4c26-ade0-03f394fe1d8a")
-		)
-		(instances
-			(project ""
-				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
-					(reference "#PWR03")
 					(unit 1)
 				)
 			)
@@ -9650,7 +9465,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 109.982 140.97 90)
 			(effects
 				(font
@@ -9785,7 +9600,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Fortior Tech FD6288Q driver library:TSON-8(3.1x3.1)"
+		(property "Footprint" "MOSFET_lib:NCEP3065"
 			(at 237.49 81.28 0)
 			(effects
 				(font
@@ -10157,7 +9972,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
 			(at 134.3152 80.01 0)
 			(effects
 				(font
@@ -10359,7 +10174,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 39.37 151.638 90)
 			(effects
 				(font
@@ -10490,7 +10305,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 194.31 99.568 90)
 			(effects
 				(font
@@ -10559,7 +10374,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 204.1652 49.53 0)
 			(effects
 				(font
@@ -10888,7 +10703,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Fortior Tech FD6288Q driver library:TSON-8(3.1x3.1)"
+		(property "Footprint" "MOSFET_lib:NCEP3065"
 			(at 266.7 95.25 0)
 			(effects
 				(font
@@ -11054,7 +10869,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 28.702 140.97 90)
 			(effects
 				(font
@@ -11251,73 +11066,6 @@
 		)
 	)
 	(symbol
-		(lib_name "+3V3_1")
-		(lib_id "power:+3V3")
-		(at 21.59 26.67 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "79076078-89cd-4ecb-ad9e-2eeb75e33363")
-		(property "Reference" "#PWR06"
-			(at 21.59 30.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 21.59 21.59 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 21.59 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 21.59 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 21.59 26.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b4c9b422-cce1-4004-923c-5fdf85a50cbc")
-		)
-		(instances
-			(project ""
-				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
-					(reference "#PWR06")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 63.5 102.87 90)
 		(unit 1)
@@ -11342,7 +11090,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 63.5 104.648 90)
 			(effects
 				(font
@@ -12096,7 +11844,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 69.342 158.75 90)
 			(effects
 				(font
@@ -12133,75 +11881,6 @@
 			(project "ESC_PCB"
 				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
 					(reference "R6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 21.59 41.91 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a1549842-c54b-43de-9296-600bf1a7b60f")
-		(property "Reference" "C5"
-			(at 25.4 41.656 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF"
-			(at 24.13 43.688 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
-			(at 22.5552 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 21.59 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 21.59 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "8c14e6d7-16f0-447b-bcd0-748e2ed064b9")
-		)
-		(pin "1"
-			(uuid "bbcad711-c4f1-46cf-93a1-4c9c8cccb4a8")
-		)
-		(instances
-			(project ""
-				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
-					(reference "C5")
 					(unit 1)
 				)
 			)
@@ -12505,7 +12184,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
+		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 21.2852 106.68 0)
 			(effects
 				(font
@@ -13318,7 +12997,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 28.702 158.75 90)
 			(effects
 				(font
@@ -13518,7 +13197,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 153.162 143.51 90)
 			(effects
 				(font
@@ -13652,7 +13331,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 223.52 85.598 90)
 			(effects
 				(font
@@ -13719,7 +13398,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 252.73 85.598 90)
 			(effects
 				(font
@@ -14192,7 +13871,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 109.982 158.75 90)
 			(effects
 				(font
@@ -14259,7 +13938,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 252.73 99.568 90)
 			(effects
 				(font
@@ -14589,76 +14268,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 21.59 31.75 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "f2dc9e7a-a831-4e55-96df-7c5083dd0c8d")
-		(property "Reference" "R2"
-			(at 24.13 30.4799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10k"
-			(at 24.13 33.0199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
-			(at 19.812 31.75 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 21.59 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 21.59 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "92eaf08f-171a-4a59-9ba6-c7cb3bdd424d")
-		)
-		(pin "2"
-			(uuid "7663f4ed-9f94-4be6-8eec-7899c47be48f")
-		)
-		(instances
-			(project ""
-				(path "/a0adf6d0-26ed-4f9f-8427-f597490cd313"
-					(reference "R2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:VCC")
 		(at 95.25 67.31 0)
 		(unit 1)
@@ -14883,7 +14492,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0402_1005Metric_Pad0.72x0.64mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 69.342 140.97 90)
 			(effects
 				(font
@@ -14952,7 +14561,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Fortior Tech FD6288Q driver library:TSON-8(3.1x3.1)"
+		(property "Footprint" "MOSFET_lib:NCEP3065"
 			(at 208.28 95.25 0)
 			(effects
 				(font

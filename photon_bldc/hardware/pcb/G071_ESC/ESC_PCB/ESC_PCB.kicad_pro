@@ -220,8 +220,16 @@
           "drill": 0.0
         },
         {
+          "diameter": 0.25,
+          "drill": 0.15
+        },
+        {
           "diameter": 0.4,
           "drill": 0.2
+        },
+        {
+          "diameter": 0.4,
+          "drill": 0.3
         },
         {
           "diameter": 0.6,
@@ -640,7 +648,7 @@
   "sheets": [
     [
       "a0adf6d0-26ed-4f9f-8427-f597490cd313",
-      "Root"
+      "Główny"
     ]
   ],
   "text_variables": {}

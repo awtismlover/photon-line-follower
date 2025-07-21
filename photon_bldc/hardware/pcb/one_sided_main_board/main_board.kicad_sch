@@ -8400,17 +8400,6 @@
 		)
 		(uuid "3e74d99c-fa57-4a80-bc75-293b916c00db")
 	)
-	(text "max 3,186V"
-		(exclude_from_sim no)
-		(at 242.57 96.52 0)
-		(effects
-			(font
-				(size 1.1 1.1)
-			)
-			(justify left bottom)
-		)
-		(uuid "3e97ef88-172b-4691-95c9-d66a4bc425c9")
-	)
 	(text "EXTERNAL HSE CLK"
 		(exclude_from_sim no)
 		(at 21.336 57.658 0)
@@ -10630,7 +10619,7 @@
 				)
 			)
 		)
-		(property "Value" "250R"
+		(property "Value" "10k"
 			(at 237.236 103.378 0)
 			(effects
 				(font
@@ -11167,7 +11156,7 @@
 				)
 			)
 		)
-		(property "Value" "1k"
+		(property "Value" "33k"
 			(at 237.236 93.472 0)
 			(effects
 				(font
