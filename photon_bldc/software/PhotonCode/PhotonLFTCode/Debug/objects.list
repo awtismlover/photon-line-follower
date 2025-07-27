@@ -1,4 +1,5 @@
 "./Core/Src/BLDC_Motor.o"
+"./Core/Src/ICM-42688p.o"
 "./Core/Src/Line_Follower.o"
 "./Core/Src/LowPassFilter.o"
 "./Core/Src/RingBuffer.o"
