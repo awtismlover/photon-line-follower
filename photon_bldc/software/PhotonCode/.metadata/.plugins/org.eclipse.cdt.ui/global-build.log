@@ -12681,3 +12681,264 @@ Finished building: default.size.stdout
  
 Finished building: PhotonLFTCode.list
  
+04:10:57 **** Incremental Build of configuration Debug for project PhotonLFTCode ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/ICM-42688p.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ICM-42688p.d" -MT"Core/Src/ICM-42688p.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ICM-42688p.o"
+../Core/Src/ICM-42688p.c: In function 'ICM_ReadGyroZ':
+../Core/Src/ICM-42688p.c:37:48: warning: passing argument 3 of 'HAL_SPI_TransmitReceive' from incompatible pointer type [-Wincompatible-pointer-types]
+   37 |         HAL_SPI_TransmitReceive(spi, &addr_Z1, &GyroZ, 1, HAL_MAX_DELAY);
+      |                                                ^~~~~~
+      |                                                |
+      |                                                float *
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:336,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/ICM-42688p.c:8:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h:798:101: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'float *'
+  798 | HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *hspi, const uint8_t *pTxData, uint8_t *pRxData,
+      |                                                                                            ~~~~~~~~~^~~~~~~
+../Core/Src/ICM-42688p.c:43:44: error: invalid operands to binary << (have 'float' and 'int')
+   43 |         float combination = ((float)GyroZ1 << 8) | GyroZ0;
+      |                              ~~~~~~~~~~~~~ ^~
+      |                              |
+      |                              float
+../Core/Src/ICM-42688p.c:43:15: warning: unused variable 'combination' [-Wunused-variable]
+   43 |         float combination = ((float)GyroZ1 << 8) | GyroZ0;
+      |               ^~~~~~~~~~~
+../Core/Src/ICM-42688p.c:24:23: warning: unused variable 'addr_Z0' [-Wunused-variable]
+   24 |         const uint8_t addr_Z0 = 0x2A;
+      |                       ^~~~~~~
+make: *** [Core/Src/subdir.mk:76: Core/Src/ICM-42688p.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+04:11:23 **** Incremental Build of configuration Debug for project PhotonLFTCode ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/ICM-42688p.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ICM-42688p.d" -MT"Core/Src/ICM-42688p.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ICM-42688p.o"
+../Core/Src/ICM-42688p.c: In function 'ICM_ReadGyroZ':
+../Core/Src/ICM-42688p.c:37:48: warning: passing argument 3 of 'HAL_SPI_TransmitReceive' from incompatible pointer type [-Wincompatible-pointer-types]
+   37 |         HAL_SPI_TransmitReceive(spi, &addr_Z1, &GyroZ, 2, HAL_MAX_DELAY);
+      |                                                ^~~~~~
+      |                                                |
+      |                                                float *
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:336,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/ICM-42688p.c:8:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h:798:101: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'float *'
+  798 | HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *hspi, const uint8_t *pTxData, uint8_t *pRxData,
+      |                                                                                            ~~~~~~~~~^~~~~~~
+../Core/Src/ICM-42688p.c:24:23: warning: unused variable 'addr_Z0' [-Wunused-variable]
+   24 |         const uint8_t addr_Z0 = 0x2A;
+      |                       ^~~~~~~
+../Core/Src/ICM-42688p.c:43:54: warning: 'GyroZ1' is used uninitialized [-Wuninitialized]
+   43 |         int16_t combination = ((int16_t)GyroZ1 << 8) | GyroZ0;
+      |                               ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+../Core/Src/ICM-42688p.c:22:17: note: 'GyroZ1' was declared here
+   22 |         uint8_t GyroZ1;
+      |                 ^~~~~~
+../Core/Src/ICM-42688p.c:43:54: warning: 'GyroZ0' is used uninitialized [-Wuninitialized]
+   43 |         int16_t combination = ((int16_t)GyroZ1 << 8) | GyroZ0;
+      |                               ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~
+../Core/Src/ICM-42688p.c:21:17: note: 'GyroZ0' was declared here
+   21 |         uint8_t GyroZ0;
+      |                 ^~~~~~
+arm-none-eabi-gcc -o "PhotonLFTCode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\SNYDE\Documents\GitHub\photon-line-follower\photon_bldc\software\PhotonCode\PhotonLFTCode\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PhotonLFTCode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PhotonLFTCode.elf
+ 
+arm-none-eabi-size  PhotonLFTCode.elf 
+arm-none-eabi-objdump -h -S PhotonLFTCode.elf  > "PhotonLFTCode.list"
+   text	   data	    bss	    dec	    hex	filename
+  80692	    492	   5828	  87012	  153e4	PhotonLFTCode.elf
+Finished building: default.size.stdout
+ 
+Finished building: PhotonLFTCode.list
+ 
+04:11:35 **** Incremental Build of configuration Debug for project PhotonLFTCode ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/ICM-42688p.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ICM-42688p.d" -MT"Core/Src/ICM-42688p.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ICM-42688p.o"
+../Core/Src/ICM-42688p.c: In function 'ICM_ReadGyroZ':
+../Core/Src/ICM-42688p.c:37:48: warning: passing argument 3 of 'HAL_SPI_TransmitReceive' from incompatible pointer type [-Wincompatible-pointer-types]
+   37 |         HAL_SPI_TransmitReceive(spi, &addr_Z1, &GyroZ, 2, HAL_MAX_DELAY);
+      |                                                ^~~~~~
+      |                                                |
+      |                                                float *
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:336,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/ICM-42688p.c:8:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h:798:101: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'float *'
+  798 | HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *hspi, const uint8_t *pTxData, uint8_t *pRxData,
+      |                                                                                            ~~~~~~~~~^~~~~~~
+../Core/Src/ICM-42688p.c:24:23: warning: unused variable 'addr_Z0' [-Wunused-variable]
+   24 |         const uint8_t addr_Z0 = 0x2A;
+      |                       ^~~~~~~
+../Core/Src/ICM-42688p.c:22:17: warning: unused variable 'GyroZ1' [-Wunused-variable]
+   22 |         uint8_t GyroZ1;
+      |                 ^~~~~~
+../Core/Src/ICM-42688p.c:21:17: warning: unused variable 'GyroZ0' [-Wunused-variable]
+   21 |         uint8_t GyroZ0;
+      |                 ^~~~~~
+arm-none-eabi-gcc -o "PhotonLFTCode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\SNYDE\Documents\GitHub\photon-line-follower\photon_bldc\software\PhotonCode\PhotonLFTCode\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PhotonLFTCode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PhotonLFTCode.elf
+ 
+arm-none-eabi-size  PhotonLFTCode.elf 
+arm-none-eabi-objdump -h -S PhotonLFTCode.elf  > "PhotonLFTCode.list"
+   text	   data	    bss	    dec	    hex	filename
+  80692	    492	   5828	  87012	  153e4	PhotonLFTCode.elf
+Finished building: default.size.stdout
+ 
+Finished building: PhotonLFTCode.list
+ 
+04:12:22 **** Incremental Build of configuration Debug for project PhotonLFTCode ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/ICM-42688p.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ICM-42688p.d" -MT"Core/Src/ICM-42688p.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ICM-42688p.o"
+../Core/Src/ICM-42688p.c: In function 'ICM_ReadGyroZ':
+../Core/Src/ICM-42688p.c:37:48: warning: passing argument 3 of 'HAL_SPI_TransmitReceive' from incompatible pointer type [-Wincompatible-pointer-types]
+   37 |         HAL_SPI_TransmitReceive(spi, &addr_Z1, &GyroZ, 2, HAL_MAX_DELAY);
+      |                                                ^~~~~~
+      |                                                |
+      |                                                float (*)[2]
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:336,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/ICM-42688p.c:8:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h:798:101: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'float (*)[2]'
+  798 | HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *hspi, const uint8_t *pTxData, uint8_t *pRxData,
+      |                                                                                            ~~~~~~~~~^~~~~~~
+../Core/Src/ICM-42688p.c:46:24: error: incompatible types when returning type 'float *' but 'float' was expected
+   46 |                 return GyroZ;
+      |                        ^~~~~
+../Core/Src/ICM-42688p.c:24:23: warning: unused variable 'addr_Z0' [-Wunused-variable]
+   24 |         const uint8_t addr_Z0 = 0x2A;
+      |                       ^~~~~~~
+../Core/Src/ICM-42688p.c:22:17: warning: unused variable 'GyroZ1' [-Wunused-variable]
+   22 |         uint8_t GyroZ1;
+      |                 ^~~~~~
+../Core/Src/ICM-42688p.c:21:17: warning: unused variable 'GyroZ0' [-Wunused-variable]
+   21 |         uint8_t GyroZ0;
+      |                 ^~~~~~
+../Core/Src/ICM-42688p.c:47:1: warning: control reaches end of non-void function [-Wreturn-type]
+   47 | }
+      | ^
+make: *** [Core/Src/subdir.mk:76: Core/Src/ICM-42688p.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+04:12:38 **** Incremental Build of configuration Debug for project PhotonLFTCode ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/ICM-42688p.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ICM-42688p.d" -MT"Core/Src/ICM-42688p.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ICM-42688p.o"
+../Core/Src/ICM-42688p.c: In function 'ICM_ReadGyroZ':
+../Core/Src/ICM-42688p.c:37:48: warning: passing argument 3 of 'HAL_SPI_TransmitReceive' from incompatible pointer type [-Wincompatible-pointer-types]
+   37 |         HAL_SPI_TransmitReceive(spi, &addr_Z1, &GyroZ, 2, HAL_MAX_DELAY);
+      |                                                ^~~~~~
+      |                                                |
+      |                                                float *
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:336,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/ICM-42688p.c:8:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h:798:101: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'float *'
+  798 | HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *hspi, const uint8_t *pTxData, uint8_t *pRxData,
+      |                                                                                            ~~~~~~~~~^~~~~~~
+../Core/Src/ICM-42688p.c:24:23: warning: unused variable 'addr_Z0' [-Wunused-variable]
+   24 |         const uint8_t addr_Z0 = 0x2A;
+      |                       ^~~~~~~
+../Core/Src/ICM-42688p.c:22:17: warning: unused variable 'GyroZ1' [-Wunused-variable]
+   22 |         uint8_t GyroZ1;
+      |                 ^~~~~~
+../Core/Src/ICM-42688p.c:21:17: warning: unused variable 'GyroZ0' [-Wunused-variable]
+   21 |         uint8_t GyroZ0;
+      |                 ^~~~~~
+arm-none-eabi-gcc -o "PhotonLFTCode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\SNYDE\Documents\GitHub\photon-line-follower\photon_bldc\software\PhotonCode\PhotonLFTCode\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PhotonLFTCode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PhotonLFTCode.elf
+ 
+arm-none-eabi-size  PhotonLFTCode.elf 
+arm-none-eabi-objdump -h -S PhotonLFTCode.elf  > "PhotonLFTCode.list"
+   text	   data	    bss	    dec	    hex	filename
+  80692	    492	   5828	  87012	  153e4	PhotonLFTCode.elf
+Finished building: default.size.stdout
+ 
+Finished building: PhotonLFTCode.list
+ 
+04:14:30 **** Incremental Build of configuration Debug for project PhotonLFTCode ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/ICM-42688p.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ICM-42688p.d" -MT"Core/Src/ICM-42688p.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ICM-42688p.o"
+../Core/Src/ICM-42688p.c: In function 'ICM_ReadGyroZ':
+../Core/Src/ICM-42688p.c:29:48: warning: passing argument 3 of 'HAL_SPI_TransmitReceive' from incompatible pointer type [-Wincompatible-pointer-types]
+   29 |         HAL_SPI_TransmitReceive(spi, &addr_Z1, &GyroZ, 2, HAL_MAX_DELAY);
+      |                                                ^~~~~~
+      |                                                |
+      |                                                float *
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:336,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/ICM-42688p.c:8:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h:798:101: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'float *'
+  798 | HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *hspi, const uint8_t *pTxData, uint8_t *pRxData,
+      |                                                                                            ~~~~~~~~~^~~~~~~
+../Core/Src/ICM-42688p.c:23:17: warning: unused variable 'Gyro' [-Wunused-variable]
+   23 |         uint8_t Gyro[2];
+      |                 ^~~~
+arm-none-eabi-gcc -o "PhotonLFTCode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\SNYDE\Documents\GitHub\photon-line-follower\photon_bldc\software\PhotonCode\PhotonLFTCode\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PhotonLFTCode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PhotonLFTCode.elf
+ 
+arm-none-eabi-size  PhotonLFTCode.elf 
+arm-none-eabi-objdump -h -S PhotonLFTCode.elf  > "PhotonLFTCode.list"
+   text	   data	    bss	    dec	    hex	filename
+  80692	    492	   5828	  87012	  153e4	PhotonLFTCode.elf
+Finished building: default.size.stdout
+ 
+Finished building: PhotonLFTCode.list
+ 
+04:14:38 **** Incremental Build of configuration Debug for project PhotonLFTCode ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/ICM-42688p.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ICM-42688p.d" -MT"Core/Src/ICM-42688p.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ICM-42688p.o"
+../Core/Src/ICM-42688p.c: In function 'ICM_ReadGyroZ':
+../Core/Src/ICM-42688p.c:29:48: warning: passing argument 3 of 'HAL_SPI_TransmitReceive' from incompatible pointer type [-Wincompatible-pointer-types]
+   29 |         HAL_SPI_TransmitReceive(spi, &addr_Z1, &Gyro, 2, HAL_MAX_DELAY);
+      |                                                ^~~~~
+      |                                                |
+      |                                                uint8_t (*)[2] {aka unsigned char (*)[2]}
+In file included from ../Core/Inc/stm32g4xx_hal_conf.h:336,
+                 from ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/ICM-42688p.c:8:
+../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_spi.h:798:101: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[2]' {aka 'unsigned char (*)[2]'}
+  798 | HAL_StatusTypeDef HAL_SPI_TransmitReceive(SPI_HandleTypeDef *hspi, const uint8_t *pTxData, uint8_t *pRxData,
+      |                                                                                            ~~~~~~~~~^~~~~~~
+arm-none-eabi-gcc -o "PhotonLFTCode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\SNYDE\Documents\GitHub\photon-line-follower\photon_bldc\software\PhotonCode\PhotonLFTCode\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PhotonLFTCode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PhotonLFTCode.elf
+ 
+arm-none-eabi-size  PhotonLFTCode.elf 
+arm-none-eabi-objdump -h -S PhotonLFTCode.elf  > "PhotonLFTCode.list"
+   text	   data	    bss	    dec	    hex	filename
+  80692	    492	   5828	  87012	  153e4	PhotonLFTCode.elf
+Finished building: default.size.stdout
+ 
+Finished building: PhotonLFTCode.list
+ 
+04:14:44 **** Incremental Build of configuration Debug for project PhotonLFTCode ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/ICM-42688p.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ICM-42688p.d" -MT"Core/Src/ICM-42688p.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ICM-42688p.o"
+arm-none-eabi-gcc -o "PhotonLFTCode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\SNYDE\Documents\GitHub\photon-line-follower\photon_bldc\software\PhotonCode\PhotonLFTCode\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PhotonLFTCode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PhotonLFTCode.elf
+ 
+arm-none-eabi-size  PhotonLFTCode.elf 
+arm-none-eabi-objdump -h -S PhotonLFTCode.elf  > "PhotonLFTCode.list"
+   text	   data	    bss	    dec	    hex	filename
+  80692	    492	   5828	  87012	  153e4	PhotonLFTCode.elf
+Finished building: default.size.stdout
+ 
+Finished building: PhotonLFTCode.list
+ 
+04:15:08 **** Incremental Build of configuration Debug for project PhotonLFTCode ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/ICM-42688p.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/Target -I../FATFS/App -I../Middlewares/Third_Party/FatFs/src -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/ICM-42688p.d" -MT"Core/Src/ICM-42688p.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/ICM-42688p.o"
+arm-none-eabi-gcc -o "PhotonLFTCode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\SNYDE\Documents\GitHub\photon-line-follower\photon_bldc\software\PhotonCode\PhotonLFTCode\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="PhotonLFTCode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: PhotonLFTCode.elf
+ 
+arm-none-eabi-size  PhotonLFTCode.elf 
+arm-none-eabi-objdump -h -S PhotonLFTCode.elf  > "PhotonLFTCode.list"
+   text	   data	    bss	    dec	    hex	filename
+  80692	    492	   5828	  87012	  153e4	PhotonLFTCode.elf
+Finished building: default.size.stdout
+ 
+Finished building: PhotonLFTCode.list
+ 

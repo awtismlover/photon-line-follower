@@ -20,29 +20,27 @@ float ICM_ReadGyroZ(SPI_HandleTypeDef * spi)
 {
 	uint8_t GyroZ0;
 	uint8_t GyroZ1;
-	//uint8_t Gyro[2];
 	float GyroZ;
 	const uint8_t addr_Z0 = 0x2A;
 	const uint8_t addr_Z1 = 0x29;
 
-	//Read First byte
-	//HAL_SPI_TransmitReceive(spi, &addr_Z1, Gyro, 2, HAL_MAX_DELAY);
-
 	/*Begin transmission*/
 	HAL_GPIO_WritePin(SPI3_CS_GPIO_Port, SPI3_CS_Pin, GPIO_PIN_RESET);
 
-	//Read First byte
-	HAL_SPI_TransmitReceive(spi, &addr_Z0, &GyroZ0, 1, HAL_MAX_DELAY);
+//	//Read First byte
+//	HAL_SPI_TransmitReceive(spi, &addr_Z0, &GyroZ0, 1, HAL_MAX_DELAY);
+//
+//	//Read Second byte
+//	HAL_SPI_TransmitReceive(spi, &addr_Z1, &GyroZ1, 1, HAL_MAX_DELAY);
 
-	//Read Second byte
-	HAL_SPI_TransmitReceive(spi, &addr_Z1, &GyroZ1, 1, HAL_MAX_DELAY);
+	//Read First byte
+	HAL_SPI_TransmitReceive(spi, &addr_Z1, &GyroZ, 1, HAL_MAX_DELAY);
 
 	/*End transmission*/
 	HAL_GPIO_WritePin(SPI3_CS_GPIO_Port, SPI3_CS_Pin, GPIO_PIN_SET);
 
 	/*Combine Z0 with Z1*/
-	int16_t combination = ((int16_t)GyroZ1 << 8) | GyroZ0;
-	GyroZ = (float)combination;
+	float combination = ((float)GyroZ1 << 8) | GyroZ0;
 
 		return GyroZ;
 }
