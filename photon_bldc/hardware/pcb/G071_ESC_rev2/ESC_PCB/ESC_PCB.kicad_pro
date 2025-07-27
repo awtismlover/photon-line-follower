@@ -129,7 +129,7 @@
         "min_text_thickness": 0.153,
         "min_through_hole_diameter": 0.15,
         "min_track_width": 0.1,
-        "min_via_annular_width": 0.1,
+        "min_via_annular_width": 0.05,
         "min_via_diameter": 0.25,
         "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
@@ -239,6 +239,10 @@
         {
           "diameter": 0.9,
           "drill": 0.4
+        },
+        {
+          "diameter": 8.0,
+          "drill": 19.0
         }
       ],
       "zones_allow_external_fillets": false
@@ -649,7 +653,7 @@
   "sheets": [
     [
       "a0adf6d0-26ed-4f9f-8427-f597490cd313",
-      "Root"
+      "Główny"
     ]
   ],
   "text_variables": {}
