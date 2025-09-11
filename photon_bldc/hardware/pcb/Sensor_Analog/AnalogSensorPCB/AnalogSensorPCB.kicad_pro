@@ -562,7 +562,11 @@
       "plot": "../../JLCPCB_Order/analog_sensor/",
       "pos_files": "",
       "specctra_dsn": "",
+<<<<<<< HEAD
       "step": "../../../../../../../../Pulpit/AnalogSensorPCB.step",
+=======
+      "step": "../../../../../../../../Desktop/AnalogSensorPCB.step",
+>>>>>>> 292361d992a01274331198bf20f6df7f82cb8a70
       "svg": "",
       "vrml": ""
     },

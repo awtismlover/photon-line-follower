@@ -1,0 +1,2 @@
+../Core/Src/BLDC_Motor.c:12:6:BLDC_ARM	15
+../Core/Src/BLDC_Motor.c:41:6:BLDC_Set_Speed	6

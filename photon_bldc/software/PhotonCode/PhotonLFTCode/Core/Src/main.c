@@ -208,8 +208,8 @@ int main(void)
 	  /*Blink LED1*/
 	  if(HAL_GetTick() > (lasttime1 + 500))
 	  {
-		  //lasttime1 = HAL_GetTick();
-		  //HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+		  lasttime1 = HAL_GetTick();
+		  HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
 	  }
 	  /*Bluetooth check*/
  	  if(ReceivedLines > 0)
@@ -400,8 +400,7 @@ void Error_Handler(void)
   }
   /* USER CODE END Error_Handler_Debug */
 }
-
-#ifdef  USE_FULL_ASSERT
+#ifdef USE_FULL_ASSERT
 /**
   * @brief  Reports the name of the source file and the source line number
   *         where the assert_param error has occurred.

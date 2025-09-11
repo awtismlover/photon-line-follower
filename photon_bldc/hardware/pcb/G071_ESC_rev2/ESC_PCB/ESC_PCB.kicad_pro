@@ -512,7 +512,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "../../JLCPCB_Order/ESC PCB/",
+      "plot": "../GERBER_ESC_rev2/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "../../../../../../../../Pulpit/ESC_PCB.step",
@@ -653,7 +653,7 @@
   "sheets": [
     [
       "a0adf6d0-26ed-4f9f-8427-f597490cd313",
-      "Główny"
+      "Root"
     ]
   ],
   "text_variables": {}

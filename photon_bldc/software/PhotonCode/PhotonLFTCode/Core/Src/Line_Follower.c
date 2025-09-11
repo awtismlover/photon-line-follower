@@ -185,8 +185,6 @@ void sharp_turn(LineFollower_t *LF)
 	}
 	else
 	{
-		HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_RESET);
 		if (LF->Last_end == 1)
 		{
 			motor_control(&PHOTON, PHOTON.Bend_speed_right, PHOTON.Bend_speed_left);
@@ -218,8 +216,6 @@ void past_errors (LineFollower_t *LF, int error)
 
 void PID_control(LineFollower_t *LF)
 {
-	HAL_GPIO_WritePin(LED1_GPIO_Port, LED1_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(LED2_GPIO_Port, LED2_Pin, GPIO_PIN_SET);
 
   uint16_t position = SensorRead(LF);
   float error = 6500 - position;

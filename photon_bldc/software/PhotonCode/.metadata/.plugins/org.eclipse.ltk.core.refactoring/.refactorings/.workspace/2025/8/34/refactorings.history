@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 6 resources" deleteContents="false" description="Delete 6 resources" element1="/Gruzik40LFLCode/Core/Inc/BLDC_Motor.c" element2="/Gruzik40LFLCode/Core/Inc/Line_Follower.c" element3="/Gruzik40LFLCode/Core/Inc/LowPassFilter.c" element4="/Gruzik40LFLCode/Core/Inc/RingBuffer.c" element5="/Gruzik40LFLCode/Core/Inc/SimpleParser.c" element6="/Gruzik40LFLCode/Core/Src/Line_Follower.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="6" stamp="1755783412952"/>
+</session>
