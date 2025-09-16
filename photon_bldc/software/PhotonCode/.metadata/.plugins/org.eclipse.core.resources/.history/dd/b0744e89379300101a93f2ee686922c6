@@ -110,11 +110,11 @@ static int SensorRead(LineFollower_t *LF)
 	{
 		if(LF->Last_end == 1)
 		{
-			LF->SensorPosition = 12000;
+			LF->SensorPosition = 1000;//12000
 		}
 		else
 		{
-			LF->SensorPosition = 1000;
+			LF->SensorPosition = 12000;
 		}
 //		return 0;
 	}
@@ -137,15 +137,16 @@ void motor_control(LineFollower_t* LF, float pos_right, float pos_left)
 	}
 	if(pos_right >= 0)
 	{
-		HAL_GPIO_WritePin(Direction_R_A_GPIO_Port, Direction_R_A_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(Direction_R_B_GPIO_Port, Direction_R_B_Pin, GPIO_PIN_RESET);
-		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pos_right * LF->Speed_level);
+		//TODO:odkomentuj tu
+		//HAL_GPIO_WritePin(Direction_R_A_GPIO_Port, Direction_R_A_Pin, GPIO_PIN_SET);
+		//HAL_GPIO_WritePin(Direction_R_B_GPIO_Port, Direction_R_B_Pin, GPIO_PIN_RESET);
+		//__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pos_right * LF->Speed_level);
 	}
 	else
 	{
-		HAL_GPIO_WritePin(Direction_R_A_GPIO_Port, Direction_R_A_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(Direction_R_B_GPIO_Port, Direction_R_B_Pin, GPIO_PIN_SET);
-		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pos_right * -1 * LF->Speed_level);
+		//HAL_GPIO_WritePin(Direction_R_A_GPIO_Port, Direction_R_A_Pin, GPIO_PIN_RESET);
+		//HAL_GPIO_WritePin(Direction_R_B_GPIO_Port, Direction_R_B_Pin, GPIO_PIN_SET);
+		//__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pos_right * -1 * LF->Speed_level);
 	}
 
 }
