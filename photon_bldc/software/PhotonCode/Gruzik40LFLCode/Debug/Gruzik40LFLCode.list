@@ -1400,9 +1400,9 @@ static int SensorRead(LineFollower_t *LF)
  80010d2:	4602      	mov	r2, r0
  80010d4:	687b      	ldr	r3, [r7, #4]
  80010d6:	f8c3 21cc 	str.w	r2, [r3, #460]	@ 0x1cc
-			LF->Last_end = 0;//1
+			LF->Last_end = 1;//1
  80010da:	687b      	ldr	r3, [r7, #4]
- 80010dc:	2200      	movs	r2, #0
+ 80010dc:	2201      	movs	r2, #1
  80010de:	f8c3 21d0 	str.w	r2, [r3, #464]	@ 0x1d0
 		}
 	}
@@ -1613,9 +1613,9 @@ static int SensorRead(LineFollower_t *LF)
  8001248:	4602      	mov	r2, r0
  800124a:	687b      	ldr	r3, [r7, #4]
  800124c:	f8c3 21cc 	str.w	r2, [r3, #460]	@ 0x1cc
-			LF->Last_end = 1;//0
+			LF->Last_end = 0;//0
  8001250:	687b      	ldr	r3, [r7, #4]
- 8001252:	2201      	movs	r2, #1
+ 8001252:	2200      	movs	r2, #0
  8001254:	f8c3 21d0 	str.w	r2, [r3, #464]	@ 0x1d0
 		}
 	}
