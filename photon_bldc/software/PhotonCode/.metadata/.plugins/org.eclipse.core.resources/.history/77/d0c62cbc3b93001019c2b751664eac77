@@ -23,72 +23,72 @@ static int SensorRead(LineFollower_t *LF)
 
 	if (LF->Adc1_Values[0] > LF->treshold)
 	{
-		pos += 12000;
-		active++;
-		if(HAL_GetTick() > (LF->LastEndTimer + 1))
-		{
- 			LF->LastEndTimer = HAL_GetTick();
-			LF->Last_end = 0;//1
-		}
-	}
-	if (LF->Adc1_Values[1] > LF->treshold)
-	{
-		pos += 11000;
-		active++;
-	}
-	if (LF->Adc1_Values[2] > LF->treshold)
-	{
-		pos += 10000;
-		active++;
-	}
-	if (LF->Adc1_Values[3] > LF->treshold)
-	{
-		pos += 9000;
-		active++;
-	}
-	if (LF->Adc1_Values[5] > LF->treshold)
-	{
-		pos += 8000;
-		active++;
-	}
-	if (LF->Adc1_Values[6] > LF->treshold)
-	{
-		pos += 7000;
-		active++;
-	}
-	if (LF->Adc1_Values[7] > LF->treshold)
-	{
-		pos += 6000;
-		active++;
-	}
-	if (LF->Adc1_Values[8] > LF->treshold)
-	{
-		pos += 5000;
-		active++;
-	}
-	if (LF->Adc2_Values[0] > LF->treshold)
-	{
-		pos += 4000;
-		active++;
-	}
-	if (LF->Adc2_Values[1] > LF->treshold)
-	{
-		pos += 3000;
-		active++;
-	}
-	if (LF->Adc2_Values[2] > LF->treshold)
-	{
-		pos += 2000;
-		active++;
-	}
-	if (LF->Adc2_Values[3] > LF->treshold)
-	{
 		pos += 1000;
 		active++;
 		if(HAL_GetTick() > (LF->LastEndTimer + 1))
 		{
+ 			LF->LastEndTimer = HAL_GetTick();
+			LF->Last_end = 1;//1
+		}
+	}
+	if (LF->Adc1_Values[1] > LF->treshold)
+	{
+		pos += 2000;
+		active++;
+	}
+	if (LF->Adc1_Values[2] > LF->treshold)
+	{
+		pos += 3000;
+		active++;
+	}
+	if (LF->Adc1_Values[3] > LF->treshold)
+	{
+		pos += 4000;
+		active++;
+	}
+	if (LF->Adc1_Values[5] > LF->treshold)
+	{
+		pos += 5000;
+		active++;
+	}
+	if (LF->Adc1_Values[6] > LF->treshold)
+	{
+		pos += 6000;
+		active++;
+	}
+	if (LF->Adc1_Values[7] > LF->treshold)
+	{
+		pos += 7000;
+		active++;
+	}
+	if (LF->Adc1_Values[8] > LF->treshold)
+	{
+		pos += 8000;
+		active++;
+	}
+	if (LF->Adc2_Values[0] > LF->treshold)
+	{
+		pos += 9000;
+		active++;
+	}
+	if (LF->Adc2_Values[1] > LF->treshold)
+	{
+		pos += 10000;
+		active++;
+	}
+	if (LF->Adc2_Values[2] > LF->treshold)
+	{
+		pos += 11000;
+		active++;
+	}
+	if (LF->Adc2_Values[3] > LF->treshold)
+	{
+		pos += 12000;
+		active++;
+		if(HAL_GetTick() > (LF->LastEndTimer + 1))
+		{
 			LF->LastEndTimer = HAL_GetTick();
-			LF->Last_end = 1;//0
+			LF->Last_end = 0;//0
 		}
 	}
 
@@ -125,26 +125,26 @@ void motor_control(LineFollower_t* LF, float pos_right, float pos_left)
 {
 	if(pos_left >= 0)//left
 	{
-		HAL_GPIO_WritePin(Direction_L_A_GPIO_Port, Direction_L_A_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(Direction_L_B_GPIO_Port, Direction_L_B_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(Direction_L_A_GPIO_Port, Direction_L_A_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(Direction_L_B_GPIO_Port, Direction_L_B_Pin, GPIO_PIN_SET);
 		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pos_left * LF->Speed_level);
 	}
 	else
 	{
-		HAL_GPIO_WritePin(Direction_L_A_GPIO_Port, Direction_L_A_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(Direction_L_B_GPIO_Port, Direction_L_B_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(Direction_L_A_GPIO_Port, Direction_L_A_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(Direction_L_B_GPIO_Port, Direction_L_B_Pin, GPIO_PIN_RESET);
 		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_4, pos_left * -1 * LF->Speed_level);
 	}
 	if(pos_right >= 0)
 	{
-		HAL_GPIO_WritePin(Direction_R_A_GPIO_Port, Direction_R_A_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(Direction_R_B_GPIO_Port, Direction_R_B_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(Direction_R_A_GPIO_Port, Direction_R_A_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(Direction_R_B_GPIO_Port, Direction_R_B_Pin, GPIO_PIN_SET);
 		__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, pos_right * LF->Speed_level);
 	}
 	else
 	{
-		HAL_GPIO_WritePin(Direction_R_A_GPIO_Port, Direction_R_A_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(Direction_R_B_GPIO_Port, Direction_R_B_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(Direction_R_A_GPIO_Port, Direction_R_A_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(Direction_R_B_GPIO_Port, Direction_R_B_Pin, GPIO_PIN_RESET);
 		__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, pos_right * -1 * LF->Speed_level);
 	}
 
