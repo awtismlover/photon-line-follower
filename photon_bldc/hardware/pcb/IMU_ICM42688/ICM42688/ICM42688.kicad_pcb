@@ -149,7 +149,7 @@
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 0 1.16 90)
+			(at 6.5675 -0.125 90)
 			(layer "F.Fab")
 			(uuid "9b62be3d-c6ca-44a4-b426-672d9a84eccb")
 			(effects
@@ -1447,7 +1447,7 @@
 			)
 		)
 		(property "Value" "10nF"
-			(at 0 1.16 -90)
+			(at 6.8425 0.425 -90)
 			(layer "F.Fab")
 			(uuid "72835935-30c9-447c-aed2-620b399e816c")
 			(effects
@@ -1769,7 +1769,7 @@
 			)
 		)
 		(property "Value" "2.2uF"
-			(at 0.3175 -0.45 90)
+			(at 6.8675 0.125 90)
 			(layer "F.Fab")
 			(uuid "3a4b5d46-47ab-47f2-996b-8664b520dbf3")
 			(effects
