@@ -1376,224 +1376,224 @@ static int SensorRead(LineFollower_t *LF)
  80010a4:	687b      	ldr	r3, [r7, #4]
  80010a6:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
  80010aa:	429a      	cmp	r2, r3
- 80010ac:	d919      	bls.n	80010e2 <SensorRead+0x52>
+ 80010ac:	d91a      	bls.n	80010e4 <SensorRead+0x54>
 	{
-		pos += 1000;
+		pos += 12000;
  80010ae:	68fb      	ldr	r3, [r7, #12]
- 80010b0:	f503 737a 	add.w	r3, r3, #1000	@ 0x3e8
- 80010b4:	60fb      	str	r3, [r7, #12]
+ 80010b0:	f503 533b 	add.w	r3, r3, #11968	@ 0x2ec0
+ 80010b4:	3320      	adds	r3, #32
+ 80010b6:	60fb      	str	r3, [r7, #12]
 		active++;
- 80010b6:	68bb      	ldr	r3, [r7, #8]
- 80010b8:	3301      	adds	r3, #1
- 80010ba:	60bb      	str	r3, [r7, #8]
+ 80010b8:	68bb      	ldr	r3, [r7, #8]
+ 80010ba:	3301      	adds	r3, #1
+ 80010bc:	60bb      	str	r3, [r7, #8]
 		if(HAL_GetTick() > (LF->LastEndTimer + 1))
- 80010bc:	f002 ff04 	bl	8003ec8 <HAL_GetTick>
- 80010c0:	4602      	mov	r2, r0
- 80010c2:	687b      	ldr	r3, [r7, #4]
- 80010c4:	f8d3 31cc 	ldr.w	r3, [r3, #460]	@ 0x1cc
- 80010c8:	3301      	adds	r3, #1
- 80010ca:	429a      	cmp	r2, r3
- 80010cc:	d909      	bls.n	80010e2 <SensorRead+0x52>
+ 80010be:	f002 ff03 	bl	8003ec8 <HAL_GetTick>
+ 80010c2:	4602      	mov	r2, r0
+ 80010c4:	687b      	ldr	r3, [r7, #4]
+ 80010c6:	f8d3 31cc 	ldr.w	r3, [r3, #460]	@ 0x1cc
+ 80010ca:	3301      	adds	r3, #1
+ 80010cc:	429a      	cmp	r2, r3
+ 80010ce:	d909      	bls.n	80010e4 <SensorRead+0x54>
 		{
  			LF->LastEndTimer = HAL_GetTick();
- 80010ce:	f002 fefb 	bl	8003ec8 <HAL_GetTick>
- 80010d2:	4602      	mov	r2, r0
- 80010d4:	687b      	ldr	r3, [r7, #4]
- 80010d6:	f8c3 21cc 	str.w	r2, [r3, #460]	@ 0x1cc
-			LF->Last_end = 1;//1
- 80010da:	687b      	ldr	r3, [r7, #4]
- 80010dc:	2201      	movs	r2, #1
- 80010de:	f8c3 21d0 	str.w	r2, [r3, #464]	@ 0x1d0
+ 80010d0:	f002 fefa 	bl	8003ec8 <HAL_GetTick>
+ 80010d4:	4602      	mov	r2, r0
+ 80010d6:	687b      	ldr	r3, [r7, #4]
+ 80010d8:	f8c3 21cc 	str.w	r2, [r3, #460]	@ 0x1cc
+			LF->Last_end = 0;//1
+ 80010dc:	687b      	ldr	r3, [r7, #4]
+ 80010de:	2200      	movs	r2, #0
+ 80010e0:	f8c3 21d0 	str.w	r2, [r3, #464]	@ 0x1d0
 		}
 	}
 	if (LF->Adc1_Values[1] > LF->treshold)
- 80010e2:	687b      	ldr	r3, [r7, #4]
- 80010e4:	8eda      	ldrh	r2, [r3, #54]	@ 0x36
- 80010e6:	687b      	ldr	r3, [r7, #4]
- 80010e8:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
- 80010ec:	429a      	cmp	r2, r3
- 80010ee:	d906      	bls.n	80010fe <SensorRead+0x6e>
-	{
-		pos += 2000;
- 80010f0:	68fb      	ldr	r3, [r7, #12]
- 80010f2:	f503 63fa 	add.w	r3, r3, #2000	@ 0x7d0
- 80010f6:	60fb      	str	r3, [r7, #12]
-		active++;
- 80010f8:	68bb      	ldr	r3, [r7, #8]
- 80010fa:	3301      	adds	r3, #1
- 80010fc:	60bb      	str	r3, [r7, #8]
-	}
-	if (LF->Adc1_Values[2] > LF->treshold)
- 80010fe:	687b      	ldr	r3, [r7, #4]
- 8001100:	8f1a      	ldrh	r2, [r3, #56]	@ 0x38
- 8001102:	687b      	ldr	r3, [r7, #4]
- 8001104:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
- 8001108:	429a      	cmp	r2, r3
- 800110a:	d906      	bls.n	800111a <SensorRead+0x8a>
-	{
-		pos += 3000;
- 800110c:	68fb      	ldr	r3, [r7, #12]
- 800110e:	f603 33b8 	addw	r3, r3, #3000	@ 0xbb8
- 8001112:	60fb      	str	r3, [r7, #12]
-		active++;
- 8001114:	68bb      	ldr	r3, [r7, #8]
- 8001116:	3301      	adds	r3, #1
- 8001118:	60bb      	str	r3, [r7, #8]
-	}
-	if (LF->Adc1_Values[3] > LF->treshold)
- 800111a:	687b      	ldr	r3, [r7, #4]
- 800111c:	8f5a      	ldrh	r2, [r3, #58]	@ 0x3a
- 800111e:	687b      	ldr	r3, [r7, #4]
- 8001120:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
- 8001124:	429a      	cmp	r2, r3
- 8001126:	d906      	bls.n	8001136 <SensorRead+0xa6>
-	{
-		pos += 4000;
- 8001128:	68fb      	ldr	r3, [r7, #12]
- 800112a:	f503 637a 	add.w	r3, r3, #4000	@ 0xfa0
- 800112e:	60fb      	str	r3, [r7, #12]
-		active++;
- 8001130:	68bb      	ldr	r3, [r7, #8]
- 8001132:	3301      	adds	r3, #1
- 8001134:	60bb      	str	r3, [r7, #8]
-	}
-	if (LF->Adc1_Values[5] > LF->treshold)
- 8001136:	687b      	ldr	r3, [r7, #4]
- 8001138:	8fda      	ldrh	r2, [r3, #62]	@ 0x3e
- 800113a:	687b      	ldr	r3, [r7, #4]
- 800113c:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
- 8001140:	429a      	cmp	r2, r3
- 8001142:	d907      	bls.n	8001154 <SensorRead+0xc4>
-	{
-		pos += 5000;
- 8001144:	68fb      	ldr	r3, [r7, #12]
- 8001146:	f503 539c 	add.w	r3, r3, #4992	@ 0x1380
- 800114a:	3308      	adds	r3, #8
- 800114c:	60fb      	str	r3, [r7, #12]
-		active++;
- 800114e:	68bb      	ldr	r3, [r7, #8]
- 8001150:	3301      	adds	r3, #1
- 8001152:	60bb      	str	r3, [r7, #8]
-	}
-	if (LF->Adc1_Values[6] > LF->treshold)
- 8001154:	687b      	ldr	r3, [r7, #4]
- 8001156:	f8b3 2040 	ldrh.w	r2, [r3, #64]	@ 0x40
- 800115a:	687b      	ldr	r3, [r7, #4]
- 800115c:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
- 8001160:	429a      	cmp	r2, r3
- 8001162:	d907      	bls.n	8001174 <SensorRead+0xe4>
-	{
-		pos += 6000;
- 8001164:	68fb      	ldr	r3, [r7, #12]
- 8001166:	f503 53bb 	add.w	r3, r3, #5984	@ 0x1760
- 800116a:	3310      	adds	r3, #16
- 800116c:	60fb      	str	r3, [r7, #12]
-		active++;
- 800116e:	68bb      	ldr	r3, [r7, #8]
- 8001170:	3301      	adds	r3, #1
- 8001172:	60bb      	str	r3, [r7, #8]
-	}
-	if (LF->Adc1_Values[7] > LF->treshold)
- 8001174:	687b      	ldr	r3, [r7, #4]
- 8001176:	f8b3 2042 	ldrh.w	r2, [r3, #66]	@ 0x42
- 800117a:	687b      	ldr	r3, [r7, #4]
- 800117c:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
- 8001180:	429a      	cmp	r2, r3
- 8001182:	d907      	bls.n	8001194 <SensorRead+0x104>
-	{
-		pos += 7000;
- 8001184:	68fb      	ldr	r3, [r7, #12]
- 8001186:	f503 53da 	add.w	r3, r3, #6976	@ 0x1b40
- 800118a:	3318      	adds	r3, #24
- 800118c:	60fb      	str	r3, [r7, #12]
-		active++;
- 800118e:	68bb      	ldr	r3, [r7, #8]
- 8001190:	3301      	adds	r3, #1
- 8001192:	60bb      	str	r3, [r7, #8]
-	}
-	if (LF->Adc1_Values[8] > LF->treshold)
- 8001194:	687b      	ldr	r3, [r7, #4]
- 8001196:	f8b3 2044 	ldrh.w	r2, [r3, #68]	@ 0x44
- 800119a:	687b      	ldr	r3, [r7, #4]
- 800119c:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
- 80011a0:	429a      	cmp	r2, r3
- 80011a2:	d906      	bls.n	80011b2 <SensorRead+0x122>
-	{
-		pos += 8000;
- 80011a4:	68fb      	ldr	r3, [r7, #12]
- 80011a6:	f503 53fa 	add.w	r3, r3, #8000	@ 0x1f40
- 80011aa:	60fb      	str	r3, [r7, #12]
-		active++;
- 80011ac:	68bb      	ldr	r3, [r7, #8]
- 80011ae:	3301      	adds	r3, #1
- 80011b0:	60bb      	str	r3, [r7, #8]
-	}
-	if (LF->Adc2_Values[0] > LF->treshold)
- 80011b2:	687b      	ldr	r3, [r7, #4]
- 80011b4:	f8b3 2046 	ldrh.w	r2, [r3, #70]	@ 0x46
- 80011b8:	687b      	ldr	r3, [r7, #4]
- 80011ba:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
- 80011be:	429a      	cmp	r2, r3
- 80011c0:	d907      	bls.n	80011d2 <SensorRead+0x142>
-	{
-		pos += 9000;
- 80011c2:	68fb      	ldr	r3, [r7, #12]
- 80011c4:	f503 530c 	add.w	r3, r3, #8960	@ 0x2300
- 80011c8:	3328      	adds	r3, #40	@ 0x28
- 80011ca:	60fb      	str	r3, [r7, #12]
-		active++;
- 80011cc:	68bb      	ldr	r3, [r7, #8]
- 80011ce:	3301      	adds	r3, #1
- 80011d0:	60bb      	str	r3, [r7, #8]
-	}
-	if (LF->Adc2_Values[1] > LF->treshold)
- 80011d2:	687b      	ldr	r3, [r7, #4]
- 80011d4:	f8b3 2048 	ldrh.w	r2, [r3, #72]	@ 0x48
- 80011d8:	687b      	ldr	r3, [r7, #4]
- 80011da:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
- 80011de:	429a      	cmp	r2, r3
- 80011e0:	d907      	bls.n	80011f2 <SensorRead+0x162>
-	{
-		pos += 10000;
- 80011e2:	68fb      	ldr	r3, [r7, #12]
- 80011e4:	f503 531c 	add.w	r3, r3, #9984	@ 0x2700
- 80011e8:	3310      	adds	r3, #16
- 80011ea:	60fb      	str	r3, [r7, #12]
-		active++;
- 80011ec:	68bb      	ldr	r3, [r7, #8]
- 80011ee:	3301      	adds	r3, #1
- 80011f0:	60bb      	str	r3, [r7, #8]
-	}
-	if (LF->Adc2_Values[2] > LF->treshold)
- 80011f2:	687b      	ldr	r3, [r7, #4]
- 80011f4:	f8b3 204a 	ldrh.w	r2, [r3, #74]	@ 0x4a
- 80011f8:	687b      	ldr	r3, [r7, #4]
- 80011fa:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
- 80011fe:	429a      	cmp	r2, r3
- 8001200:	d907      	bls.n	8001212 <SensorRead+0x182>
+ 80010e4:	687b      	ldr	r3, [r7, #4]
+ 80010e6:	8eda      	ldrh	r2, [r3, #54]	@ 0x36
+ 80010e8:	687b      	ldr	r3, [r7, #4]
+ 80010ea:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
+ 80010ee:	429a      	cmp	r2, r3
+ 80010f0:	d907      	bls.n	8001102 <SensorRead+0x72>
 	{
 		pos += 11000;
- 8001202:	68fb      	ldr	r3, [r7, #12]
- 8001204:	f503 532b 	add.w	r3, r3, #10944	@ 0x2ac0
- 8001208:	3338      	adds	r3, #56	@ 0x38
- 800120a:	60fb      	str	r3, [r7, #12]
+ 80010f2:	68fb      	ldr	r3, [r7, #12]
+ 80010f4:	f503 532b 	add.w	r3, r3, #10944	@ 0x2ac0
+ 80010f8:	3338      	adds	r3, #56	@ 0x38
+ 80010fa:	60fb      	str	r3, [r7, #12]
 		active++;
- 800120c:	68bb      	ldr	r3, [r7, #8]
- 800120e:	3301      	adds	r3, #1
- 8001210:	60bb      	str	r3, [r7, #8]
+ 80010fc:	68bb      	ldr	r3, [r7, #8]
+ 80010fe:	3301      	adds	r3, #1
+ 8001100:	60bb      	str	r3, [r7, #8]
+	}
+	if (LF->Adc1_Values[2] > LF->treshold)
+ 8001102:	687b      	ldr	r3, [r7, #4]
+ 8001104:	8f1a      	ldrh	r2, [r3, #56]	@ 0x38
+ 8001106:	687b      	ldr	r3, [r7, #4]
+ 8001108:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
+ 800110c:	429a      	cmp	r2, r3
+ 800110e:	d907      	bls.n	8001120 <SensorRead+0x90>
+	{
+		pos += 10000;
+ 8001110:	68fb      	ldr	r3, [r7, #12]
+ 8001112:	f503 531c 	add.w	r3, r3, #9984	@ 0x2700
+ 8001116:	3310      	adds	r3, #16
+ 8001118:	60fb      	str	r3, [r7, #12]
+		active++;
+ 800111a:	68bb      	ldr	r3, [r7, #8]
+ 800111c:	3301      	adds	r3, #1
+ 800111e:	60bb      	str	r3, [r7, #8]
+	}
+	if (LF->Adc1_Values[3] > LF->treshold)
+ 8001120:	687b      	ldr	r3, [r7, #4]
+ 8001122:	8f5a      	ldrh	r2, [r3, #58]	@ 0x3a
+ 8001124:	687b      	ldr	r3, [r7, #4]
+ 8001126:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
+ 800112a:	429a      	cmp	r2, r3
+ 800112c:	d907      	bls.n	800113e <SensorRead+0xae>
+	{
+		pos += 9000;
+ 800112e:	68fb      	ldr	r3, [r7, #12]
+ 8001130:	f503 530c 	add.w	r3, r3, #8960	@ 0x2300
+ 8001134:	3328      	adds	r3, #40	@ 0x28
+ 8001136:	60fb      	str	r3, [r7, #12]
+		active++;
+ 8001138:	68bb      	ldr	r3, [r7, #8]
+ 800113a:	3301      	adds	r3, #1
+ 800113c:	60bb      	str	r3, [r7, #8]
+	}
+	if (LF->Adc1_Values[5] > LF->treshold)
+ 800113e:	687b      	ldr	r3, [r7, #4]
+ 8001140:	8fda      	ldrh	r2, [r3, #62]	@ 0x3e
+ 8001142:	687b      	ldr	r3, [r7, #4]
+ 8001144:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
+ 8001148:	429a      	cmp	r2, r3
+ 800114a:	d906      	bls.n	800115a <SensorRead+0xca>
+	{
+		pos += 8000;
+ 800114c:	68fb      	ldr	r3, [r7, #12]
+ 800114e:	f503 53fa 	add.w	r3, r3, #8000	@ 0x1f40
+ 8001152:	60fb      	str	r3, [r7, #12]
+		active++;
+ 8001154:	68bb      	ldr	r3, [r7, #8]
+ 8001156:	3301      	adds	r3, #1
+ 8001158:	60bb      	str	r3, [r7, #8]
+	}
+	if (LF->Adc1_Values[6] > LF->treshold)
+ 800115a:	687b      	ldr	r3, [r7, #4]
+ 800115c:	f8b3 2040 	ldrh.w	r2, [r3, #64]	@ 0x40
+ 8001160:	687b      	ldr	r3, [r7, #4]
+ 8001162:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
+ 8001166:	429a      	cmp	r2, r3
+ 8001168:	d907      	bls.n	800117a <SensorRead+0xea>
+	{
+		pos += 7000;
+ 800116a:	68fb      	ldr	r3, [r7, #12]
+ 800116c:	f503 53da 	add.w	r3, r3, #6976	@ 0x1b40
+ 8001170:	3318      	adds	r3, #24
+ 8001172:	60fb      	str	r3, [r7, #12]
+		active++;
+ 8001174:	68bb      	ldr	r3, [r7, #8]
+ 8001176:	3301      	adds	r3, #1
+ 8001178:	60bb      	str	r3, [r7, #8]
+	}
+	if (LF->Adc1_Values[7] > LF->treshold)
+ 800117a:	687b      	ldr	r3, [r7, #4]
+ 800117c:	f8b3 2042 	ldrh.w	r2, [r3, #66]	@ 0x42
+ 8001180:	687b      	ldr	r3, [r7, #4]
+ 8001182:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
+ 8001186:	429a      	cmp	r2, r3
+ 8001188:	d907      	bls.n	800119a <SensorRead+0x10a>
+	{
+		pos += 6000;
+ 800118a:	68fb      	ldr	r3, [r7, #12]
+ 800118c:	f503 53bb 	add.w	r3, r3, #5984	@ 0x1760
+ 8001190:	3310      	adds	r3, #16
+ 8001192:	60fb      	str	r3, [r7, #12]
+		active++;
+ 8001194:	68bb      	ldr	r3, [r7, #8]
+ 8001196:	3301      	adds	r3, #1
+ 8001198:	60bb      	str	r3, [r7, #8]
+	}
+	if (LF->Adc1_Values[8] > LF->treshold)
+ 800119a:	687b      	ldr	r3, [r7, #4]
+ 800119c:	f8b3 2044 	ldrh.w	r2, [r3, #68]	@ 0x44
+ 80011a0:	687b      	ldr	r3, [r7, #4]
+ 80011a2:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
+ 80011a6:	429a      	cmp	r2, r3
+ 80011a8:	d907      	bls.n	80011ba <SensorRead+0x12a>
+	{
+		pos += 5000;
+ 80011aa:	68fb      	ldr	r3, [r7, #12]
+ 80011ac:	f503 539c 	add.w	r3, r3, #4992	@ 0x1380
+ 80011b0:	3308      	adds	r3, #8
+ 80011b2:	60fb      	str	r3, [r7, #12]
+		active++;
+ 80011b4:	68bb      	ldr	r3, [r7, #8]
+ 80011b6:	3301      	adds	r3, #1
+ 80011b8:	60bb      	str	r3, [r7, #8]
+	}
+	if (LF->Adc2_Values[0] > LF->treshold)
+ 80011ba:	687b      	ldr	r3, [r7, #4]
+ 80011bc:	f8b3 2046 	ldrh.w	r2, [r3, #70]	@ 0x46
+ 80011c0:	687b      	ldr	r3, [r7, #4]
+ 80011c2:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
+ 80011c6:	429a      	cmp	r2, r3
+ 80011c8:	d906      	bls.n	80011d8 <SensorRead+0x148>
+	{
+		pos += 4000;
+ 80011ca:	68fb      	ldr	r3, [r7, #12]
+ 80011cc:	f503 637a 	add.w	r3, r3, #4000	@ 0xfa0
+ 80011d0:	60fb      	str	r3, [r7, #12]
+		active++;
+ 80011d2:	68bb      	ldr	r3, [r7, #8]
+ 80011d4:	3301      	adds	r3, #1
+ 80011d6:	60bb      	str	r3, [r7, #8]
+	}
+	if (LF->Adc2_Values[1] > LF->treshold)
+ 80011d8:	687b      	ldr	r3, [r7, #4]
+ 80011da:	f8b3 2048 	ldrh.w	r2, [r3, #72]	@ 0x48
+ 80011de:	687b      	ldr	r3, [r7, #4]
+ 80011e0:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
+ 80011e4:	429a      	cmp	r2, r3
+ 80011e6:	d906      	bls.n	80011f6 <SensorRead+0x166>
+	{
+		pos += 3000;
+ 80011e8:	68fb      	ldr	r3, [r7, #12]
+ 80011ea:	f603 33b8 	addw	r3, r3, #3000	@ 0xbb8
+ 80011ee:	60fb      	str	r3, [r7, #12]
+		active++;
+ 80011f0:	68bb      	ldr	r3, [r7, #8]
+ 80011f2:	3301      	adds	r3, #1
+ 80011f4:	60bb      	str	r3, [r7, #8]
+	}
+	if (LF->Adc2_Values[2] > LF->treshold)
+ 80011f6:	687b      	ldr	r3, [r7, #4]
+ 80011f8:	f8b3 204a 	ldrh.w	r2, [r3, #74]	@ 0x4a
+ 80011fc:	687b      	ldr	r3, [r7, #4]
+ 80011fe:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
+ 8001202:	429a      	cmp	r2, r3
+ 8001204:	d906      	bls.n	8001214 <SensorRead+0x184>
+	{
+		pos += 2000;
+ 8001206:	68fb      	ldr	r3, [r7, #12]
+ 8001208:	f503 63fa 	add.w	r3, r3, #2000	@ 0x7d0
+ 800120c:	60fb      	str	r3, [r7, #12]
+		active++;
+ 800120e:	68bb      	ldr	r3, [r7, #8]
+ 8001210:	3301      	adds	r3, #1
+ 8001212:	60bb      	str	r3, [r7, #8]
 	}
 	if (LF->Adc2_Values[3] > LF->treshold)
- 8001212:	687b      	ldr	r3, [r7, #4]
- 8001214:	f8b3 204c 	ldrh.w	r2, [r3, #76]	@ 0x4c
- 8001218:	687b      	ldr	r3, [r7, #4]
- 800121a:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
- 800121e:	429a      	cmp	r2, r3
- 8001220:	d91a      	bls.n	8001258 <SensorRead+0x1c8>
+ 8001214:	687b      	ldr	r3, [r7, #4]
+ 8001216:	f8b3 204c 	ldrh.w	r2, [r3, #76]	@ 0x4c
+ 800121a:	687b      	ldr	r3, [r7, #4]
+ 800121c:	f8b3 31ca 	ldrh.w	r3, [r3, #458]	@ 0x1ca
+ 8001220:	429a      	cmp	r2, r3
+ 8001222:	d919      	bls.n	8001258 <SensorRead+0x1c8>
 	{
-		pos += 12000;
- 8001222:	68fb      	ldr	r3, [r7, #12]
- 8001224:	f503 533b 	add.w	r3, r3, #11968	@ 0x2ec0
- 8001228:	3320      	adds	r3, #32
+		pos += 1000;
+ 8001224:	68fb      	ldr	r3, [r7, #12]
+ 8001226:	f503 737a 	add.w	r3, r3, #1000	@ 0x3e8
  800122a:	60fb      	str	r3, [r7, #12]
 		active++;
  800122c:	68bb      	ldr	r3, [r7, #8]
@@ -1613,9 +1613,9 @@ static int SensorRead(LineFollower_t *LF)
  8001248:	4602      	mov	r2, r0
  800124a:	687b      	ldr	r3, [r7, #4]
  800124c:	f8c3 21cc 	str.w	r2, [r3, #460]	@ 0x1cc
-			LF->Last_end = 0;//0
+			LF->Last_end = 1;//0
  8001250:	687b      	ldr	r3, [r7, #4]
- 8001252:	2200      	movs	r2, #0
+ 8001252:	2201      	movs	r2, #1
  8001254:	f8c3 21d0 	str.w	r2, [r3, #464]	@ 0x1d0
 		}
 	}
@@ -1702,8 +1702,8 @@ void motor_control(LineFollower_t* LF, float pos_right, float pos_left)
  80012ce:	60f8      	str	r0, [r7, #12]
  80012d0:	ed87 0a02 	vstr	s0, [r7, #8]
  80012d4:	edc7 0a01 	vstr	s1, [r7, #4]
-	if(pos_left >= 0)
- 80012d8:	edd7 7a01 	vldr	s15, [r7, #4]
+	if(pos_right >= 0)//left
+ 80012d8:	edd7 7a02 	vldr	s15, [r7, #8]
  80012dc:	eef5 7ac0 	vcmpe.f32	s15, #0.0
  80012e0:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
  80012e4:	db18      	blt.n	8001318 <motor_control+0x50>
@@ -1754,8 +1754,8 @@ void motor_control(LineFollower_t* LF, float pos_right, float pos_left)
  8001346:	ee17 2a90 	vmov	r2, s15
  800134a:	641a      	str	r2, [r3, #64]	@ 0x40
 	}
-	if(pos_right >= 0)
- 800134c:	edd7 7a02 	vldr	s15, [r7, #8]
+	if(pos_left >= 0)
+ 800134c:	edd7 7a01 	vldr	s15, [r7, #4]
  8001350:	eef5 7ac0 	vcmpe.f32	s15, #0.0
  8001354:	eef1 fa10 	vmrs	APSR_nzcv, fpscr
  8001358:	db18      	blt.n	800138c <motor_control+0xc4>
