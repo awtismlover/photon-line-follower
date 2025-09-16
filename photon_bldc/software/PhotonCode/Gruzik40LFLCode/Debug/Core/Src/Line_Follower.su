@@ -1,6 +1,6 @@
 ../Core/Src/Line_Follower.c:19:12:SensorRead	24	static
 ../Core/Src/Line_Follower.c:124:6:motor_control	24	static
-../Core/Src/Line_Follower.c:152:6:sharp_turn	16	static
-../Core/Src/Line_Follower.c:178:6:forward_brake	24	static
-../Core/Src/Line_Follower.c:189:6:past_errors	24	static
-../Core/Src/Line_Follower.c:197:6:PID_control	40	static
+../Core/Src/Line_Follower.c:153:6:sharp_turn	16	static
+../Core/Src/Line_Follower.c:179:6:forward_brake	24	static
+../Core/Src/Line_Follower.c:190:6:past_errors	24	static
+../Core/Src/Line_Follower.c:198:6:PID_control	40	static
