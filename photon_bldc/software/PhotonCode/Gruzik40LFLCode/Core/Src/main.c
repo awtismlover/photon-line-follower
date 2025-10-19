@@ -24,7 +24,7 @@
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
-#include "usb.h"
+#include "usb_device.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -34,6 +34,7 @@
 #include "SimpleParser.h"
 #include "RingBuffer.h"
 #include "motor.h"
+#include "Eeprom.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -57,6 +58,7 @@
 #define LOW_PASS_FILTER_ALPHA 0.99 //07
 
 /*FatFS variables*/
+Eeprom_t eeprom;
 FRESULT FatFsResult;
 FATFS SdFatFs;
 FIL SdCardFile;
@@ -134,7 +136,7 @@ int main(void)
   if (MX_FATFS_Init() != APP_OK) {
     Error_Handler();
   }
-  MX_USB_PCD_Init();
+  MX_USB_Device_Init();
   /* USER CODE BEGIN 2 */
   /*Motors settings (m/s)*/
    PHOTON.Base_speed_R = 1.1;
@@ -194,6 +196,8 @@ int main(void)
    LowPassFilter_Init(&Motor_L.EncoderRpmFilter, LOW_PASS_FILTER_ALPHA);
    LowPassFilter_Init(&Motor_L.MetersPerSecondLPF, LOW_PASS_FILTER_ALPHA);
    LowPassFilter_Init(&Motor_R.MetersPerSecondLPF, LOW_PASS_FILTER_ALPHA);
+
+   	  Eeprom_init(&eeprom, &hspi2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -329,6 +333,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 				  my_motor_value[0] = 0;
 				  my_motor_value[1] = 0;
 				  my_motor_value[2] = 0;
+
 		  }
 		  else
 		  {
@@ -337,7 +342,6 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 			  {
 				  /*Set motors speed to 0*/
 				  HAL_GPIO_WritePin(STBY_GPIO_Port, STBY_Pin, GPIO_PIN_RESET);
-			 	  TurbineReady = 0;
 			  }
 			  else
 			  {

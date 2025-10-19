@@ -200,11 +200,12 @@ void PID_control(LineFollower_t *LF)
   uint16_t position = SensorRead(LF);
   float error = 6500 - position;
   //int errordif = error - LF->Last_error;
-  LF->Last_error = error;
+
 
   LF->P = error;
   LF->D = error - LF->Last_error;
   LF->Last_error = error;
+  //LF->Last_error = error;
 
   float motorspeed = LF->P*LF->Kp + LF->D*LF->Kd;
 

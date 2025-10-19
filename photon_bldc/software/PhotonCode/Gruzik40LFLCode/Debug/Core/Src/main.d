@@ -43,11 +43,14 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../Middlewares/Third_Party/FatFs/src/diskio.h \
  ../Middlewares/Third_Party/FatFs/src/ff.h ../FATFS/Target/user_diskio.h \
  ../Core/Inc/spi.h ../Core/Inc/tim.h ../Core/Inc/usart.h \
- ../Core/Inc/usb.h ../Core/Inc/gpio.h ../Core/Inc/BLDC_Motor.h \
- ../Core/Inc/Line_Follower.h ../Core/Inc/BLDC_Motor.h \
- ../Core/Inc/SimpleParser.h ../Core/Inc/RingBuffer.h \
- ../Core/Inc/Line_Follower.h ../Core/Inc/RingBuffer.h ../Core/Inc/motor.h \
- ../Core/Inc/LowPassFilter.h
+ ../USB_Device/App/usb_device.h \
+ ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h \
+ ../USB_Device/Target/usbd_conf.h ../Core/Inc/gpio.h \
+ ../Core/Inc/BLDC_Motor.h ../Core/Inc/Line_Follower.h \
+ ../Core/Inc/BLDC_Motor.h ../Core/Inc/SimpleParser.h \
+ ../Core/Inc/RingBuffer.h ../Core/Inc/Line_Follower.h \
+ ../Core/Inc/RingBuffer.h ../Core/Inc/motor.h ../Core/Inc/LowPassFilter.h \
+ ../Core/Inc/Eeprom.h
 ../Core/Inc/main.h:
 ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h:
 ../Core/Inc/stm32g4xx_hal_conf.h:
@@ -100,7 +103,9 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/spi.h:
 ../Core/Inc/tim.h:
 ../Core/Inc/usart.h:
-../Core/Inc/usb.h:
+../USB_Device/App/usb_device.h:
+../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:
+../USB_Device/Target/usbd_conf.h:
 ../Core/Inc/gpio.h:
 ../Core/Inc/BLDC_Motor.h:
 ../Core/Inc/Line_Follower.h:
@@ -111,3 +116,4 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../Core/Inc/RingBuffer.h:
 ../Core/Inc/motor.h:
 ../Core/Inc/LowPassFilter.h:
+../Core/Inc/Eeprom.h:

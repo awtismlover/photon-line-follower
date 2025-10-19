@@ -9,8 +9,12 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include USB_Device/Target/subdir.mk
+-include USB_Device/App/subdir.mk
 -include Middlewares/Third_Party/FatFs/src/option/subdir.mk
 -include Middlewares/Third_Party/FatFs/src/subdir.mk
+-include Middlewares/ST/STM32_USB_Device_Library/Core/Src/subdir.mk
+-include Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/subdir.mk
 -include FATFS/Target/subdir.mk
 -include FATFS/App/subdir.mk
 -include Drivers/STM32G4xx_HAL_Driver/Src/subdir.mk
@@ -64,8 +68,8 @@ all: main-build
 main-build: Gruzik40LFLCode.elf secondary-outputs
 
 # Tool invocations
-Gruzik40LFLCode.elf Gruzik40LFLCode.map: $(OBJS) $(USER_OBJS) C:\Users\piotr\OneDrive\Dokumenty\GitHub\photon-line-follower\photon_bldc\software\PhotonCode\Gruzik40LFLCode\STM32G474RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Gruzik40LFLCode.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\piotr\OneDrive\Dokumenty\GitHub\photon-line-follower\photon_bldc\software\PhotonCode\Gruzik40LFLCode\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Gruzik40LFLCode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Gruzik40LFLCode.elf Gruzik40LFLCode.map: $(OBJS) $(USER_OBJS) C:\Users\SNYDE\Documents\GitHub\photon-line-follower\photon_bldc\software\PhotonCode\Gruzik40LFLCode\STM32G474RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Gruzik40LFLCode.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\SNYDE\Documents\GitHub\photon-line-follower\photon_bldc\software\PhotonCode\Gruzik40LFLCode\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Gruzik40LFLCode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

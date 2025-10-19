@@ -262,6 +262,7 @@ static void App_Controll(char RxData, LineFollower_t *LineFollower)
 	{
 		uint8_t buffer[124];
 
+
 		/*Stop and turn off the LED*/
 		LineFollower->LineFollowing = 0;
 		HAL_GPIO_TogglePin(LED2_GPIO_Port, LED2_Pin);

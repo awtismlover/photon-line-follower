@@ -16,6 +16,7 @@ typedef struct
 
 	float Turbine_Speed;
 	uint32_t Turbine_Prep_Time;
+
 	float Base_speed_R;
 	float Base_speed_L;
 	float Max_speed_R;
@@ -76,5 +77,6 @@ typedef struct
 //Functions
 void PID_control(LineFollower_t *LF);
 float GetAverageSpeed(LineFollower_t *LF);
+void motor_control(LineFollower_t* LF, float pos_right, float pos_left);
 
 #endif /* INC_LINE_FOLLOWER_H_ */

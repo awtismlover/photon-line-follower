@@ -1,17 +1,10 @@
-21:45:15 **** Incremental Build of configuration Debug for project Gruzik40LFLCode ****
+20:25:44 **** Incremental Build of configuration Debug for project Gruzik40LFLCode ****
 make -j8 all 
-arm-none-eabi-gcc "../Core/Src/Line_Follower.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32G474xx -c -I../Core/Inc -I../FATFS/Target -I../FATFS/App -I../Drivers/STM32G4xx_HAL_Driver/Inc -I../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I../Middlewares/Third_Party/FatFs/src -I../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/Line_Follower.d" -MT"Core/Src/Line_Follower.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Line_Follower.o"
-arm-none-eabi-gcc -o "Gruzik40LFLCode.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\SNYDE\Documents\GitHub\photon-line-follower\photon_bldc\software\PhotonCode\Gruzik40LFLCode\STM32G474RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Gruzik40LFLCode.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: Gruzik40LFLCode.elf
- 
 arm-none-eabi-size  Gruzik40LFLCode.elf 
-arm-none-eabi-objdump -h -S Gruzik40LFLCode.elf  > "Gruzik40LFLCode.list"
    text	   data	    bss	    dec	    hex	filename
-  66780	    492	   5676	  72948	  11cf4	Gruzik40LFLCode.elf
+  99492	    844	  11644	 111980	  1b56c	Gruzik40LFLCode.elf
 Finished building: default.size.stdout
  
-Finished building: Gruzik40LFLCode.list
- 
 
-21:45:19 Build Finished. 0 errors, 0 warnings. (took 4s.82ms)
+20:25:45 Build Finished. 0 errors, 0 warnings. (took 677ms)
 

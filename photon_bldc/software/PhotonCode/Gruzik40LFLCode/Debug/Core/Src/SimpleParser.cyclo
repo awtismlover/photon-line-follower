@@ -13,6 +13,6 @@
 ../Core/Src/SimpleParser.c:240:13:Bend_speed_right_change	3
 ../Core/Src/SimpleParser.c:249:13:Bend_speed_left_change	3
 ../Core/Src/SimpleParser.c:258:13:App_Controll	6
-../Core/Src/SimpleParser.c:332:13:Mode_change	3
-../Core/Src/SimpleParser.c:341:6:Parser_Parse	16
-../Core/Src/SimpleParser.c:407:6:Read_Settings_From_EEprom	21
+../Core/Src/SimpleParser.c:333:13:Mode_change	3
+../Core/Src/SimpleParser.c:342:6:Parser_Parse	16
+../Core/Src/SimpleParser.c:408:6:Read_Settings_From_EEprom	21
